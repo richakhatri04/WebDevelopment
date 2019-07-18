@@ -1,0 +1,47 @@
+.grid-background-color {
+    height: 470px;
+    background-color: gray;
+    background-image: linear-gradient(to bottom right, #adad85, white);
+  }
+  .selected-button-color{
+    background-color:darkslateblue;
+    color: white;
+    border-radius: 12px;
+    cursor:pointer;
+  }
+  .unselected-button-color{
+    background-color:slateblue;
+    color: white;
+    border-radius: 12px;
+    cursor:pointer;
+  }
+  .selected-button-color:hover{
+    color:#99b3e6;
+    cursor:pointer;
+  }
+  .unselected-button-color:hover{
+    color:#99b3e6;
+    cursor:pointer;
+  }
+  .width-amount-button{
+    width: 40% !important;
+  }
+  .button-radius{
+    border-radius: 12px;
+  }
+  .proceed-donation{
+    background-color:red;
+    color: white;
+    border-radius: 12px;
+    margin-left: 30%;
+    margin-top:4%;
+    margin-bottom: 4%;
+  }
+  .proceed-donation:hover{
+    color: #ffb3b3;
+    cursor:pointer;
+  }
+  .img-width-height{
+    max-height:"100%";
+     max-width:"100%";
+  }

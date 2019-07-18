@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<head></head>
+<div class="jumbotron-fluid jumbotron mt-85">
+   <div class="container">
+      <div style="width:100%; margin-bottom: 25px;">
+        <div class="row" style="margin-bottom: 50px;">
+          <h4><b>Order History</b></h4>
+          </div>
+          <mat-progress-spinner [diameter]="70" style="margin:0 auto;"  *ngIf="currentList != null && !loop"
+          class="example-margin"
+          [color]="color"
+          [mode]="loading"
+          [value]="value">
+      </mat-progress-spinner>
+          <div>
+              <div *ngIf="currentList != null && loop">
+              <mat-accordion>
+                  
+              
+                  <mat-expansion-panel *ngFor="let order of currentList ; let i = index" style="width:100%;" (opened)="selectedOrder = order ; open()">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        Order {{i + 1}}
+                      </mat-panel-title>
+                      <mat-panel-description>
+                        
+                        Order Status: {{order.orderStatus}}<br>
+                        
+                    
+                      </mat-panel-description>
+                    </mat-expansion-panel-header>
+
+                    <table>
+                          
+                        <tr *ngFor="let item of order.products">
+                            <td class="image-cell">
+                                <img class="img-thumbnail" src="{{item.productpic}}">
+                              </td>
+                        
+                          <td class="description-cell">
+                            <div >
+                               <h5><b>{{item.productname}}</b></h5>
+                              <b>Price: $</b><span>{{item.productprice}}</span><br>
+                              <b>Quantity:</b> {{item.itemcount}}<br>
+                              <b>Description: </b>{{item.productDescription}}
+        
+                            </div>
+                          </td>
+                      
+                          
+                        </tr>
+                      </table>
+                      <mat-divider></mat-divider>
+                    
+                      <div style="margin-top: 15px;">
+                          <div class="float-left">
+                                <b>Estimated delivery date: </b>  {{order.estimatedDeliveryDate}}
+                           </div>
+                           <div class="float-right">
+                                 <b>Ordered total: </b>$ {{order.totalPrice}}
+                              </div>
+                              
+                              </div><br>
+                              <div class="float-left">
+                                   <b>Order Placed date: </b>  {{order.orderPlacedDate}}
+                              </div><br>
+                              <div class="float-left">
+                                   <b>Order delivery status: </b>  {{order.orderStatus}}
+                              </div><br><br>
+                              <div class="row" >
+                                <div *ngIf="showCancel">
+                                    <button (click) = "onCancel($event)" class="button" mat-flat-button color="primary"> 
+                                        <input type="hidden" value={{order._id}}>
+                                      Cancel Order </button>
+                                    </div>
+                                <div *ngIf="checker">
+                                    <a mat-raised-button style="margin-right: 10px; margin-left: 10px"routerLink="/updateOrderManagment/{{order._id}}">
+                                      <input type="hidden" value={{order._id}}>
+                                      Update Order </a>
+                                    
+                                    </div>
+                                  
+
+                                  
+                    
+                              </div>
+                             
+                             
+                      
+                
+                  </mat-expansion-panel>
+             
+                </mat-accordion>
+                </div>
+                <div *ngIf="currentList.length == 0">
+                    <mat-card>
+                      No Orders Found.
+                    </mat-card>
+
+                </div>
+          </div>
+       
+         </div><div></div>

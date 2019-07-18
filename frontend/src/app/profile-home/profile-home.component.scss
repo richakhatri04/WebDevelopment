@@ -1,0 +1,59 @@
+
+
+.user_label ,.user-info {
+    font-size: 20px;
+}
+.fa-pencil-alt{
+    opacity: 0.5;
+    margin-left: 10px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+.fa-pencil-alt:hover {
+    opacity: 1;
+}
+.fa-times-circle{
+    cursor: pointer;
+}
+.md-form{
+    margin: 0;
+}
+.badge{
+    padding: 0.45em 0.6em;
+    // float: right;
+}
+.md-form input[type=text], .md-form input[type=password], .md-form input[type=email], .md-form input[type=url], .md-form input[type=time], .md-form input[type=date], .md-form input[type=datetime-local], .md-form input[type=tel], .md-form input[type=number], .md-form input[type=search-md], .md-form input[type=search], .md-form textarea.md-textarea{
+    font-size: 20px;
+}
+    .col-sm-6{
+        flex: 0 0 50%;
+    max-width: 50%
+    }
+    .col-sm-3{
+        flex: 0 0 25%;
+    max-width: 25%;
+    }
+    .col-sm-9{
+        flex: 0 0 75%;
+    max-width: 75%;
+    }
+    .col-sm-4{
+        flex: 0 0 33.33333333%;
+    max-width: 33.33333333%;
+    }
+    .col-sm-8{
+        flex: 0 0 66.66666667%;
+    max-width: 66.66666667%;
+    }
+
+@media screen and (max-width:576px){
+    .md-form input[type=text], .md-form input[type=password], .md-form input[type=email], .md-form input[type=url], .md-form input[type=time], .md-form input[type=date], .md-form input[type=datetime-local], .md-form input[type=tel], .md-form input[type=number], .md-form input[type=search-md], .md-form input[type=search], .md-form textarea.md-textarea{
+        font-size: 14px;
+    }
+    .user_label ,.user-info{
+        font-size: 14px;
+    }
+    .fa-pencil-alt{
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,63 @@
+<!-- Developed by Aadesh Shah (B00802629) - aadeshshah@dal.ca -->
+
+<div class="outer-container container">
+  <div class="jumbotron jumbotron-fluid login-container">
+    <div class="strayspirit-logo">
+      <img src="../../assets/images/StraySpiritLogo.PNG" alt="StraySpirit_Logo">
+    </div>
+    <div class="container">
+      <div class="container">
+        <mat-tab-group class="mt-25">
+          <mat-tab label="Personal">
+              <form  name="userLoginForm" [formGroup]="userLoginForm" (submit)="loginUserSubmit()">
+                <div class="md-form">
+                  <input mdbInputDirective type="email" id="email" class="form-control" name="email" formControlName="emailLogin"
+                    [ngClass]="{'is-invalid':userLoginForm.get('emailLogin').touched && userLoginForm.get('emailLogin').invalid}">
+                  <label for="email" class="">Email</label>
+                  <div *ngIf="userLoginForm.get('emailLogin').touched && userLoginForm.get('emailLogin').invalid" class="invalid-feedback">
+                    <div *ngIf="userLoginForm.get('emailLogin').errors.required">Email is required</div>
+                    <div *ngIf="userLoginForm.get('emailLogin').errors.email || userLoginForm.get('emailLogin').errors.pattern">Email should be valid</div>
+                  </div>
+                </div>
+                <div class="md-form">
+                  <input mdbInputDirective type="password" id="password" class="form-control" name="password" formControlName="passwordLogin"
+                    [ngClass]="{'is-invalid':userLoginForm.get('passwordLogin').touched && userLoginForm.get('passwordLogin').invalid}">
+                  <label for="password" class="">Password</label>
+                  <div class="invalid-feedback">
+                    <div>Password is required</div>
+                  </div>
+                </div>
+                <button mdbBtn type="submit" color="indigo" mdbWavesEffect class="sign-in_button" [disabled]="!userLoginForm.valid">Sign-in</button>
+              </form>
+            <p class="text-center"><a routerLink="/forgot-password">Forgot password?</a></p>
+            <p class="text-center">Don't have an account? <a routerLink="/register">Register</a> here</p>
+          </mat-tab>
+          <mat-tab label="Organization">
+              <form  name="orgLoginForm" [formGroup]="orgLoginForm" (submit)="loginOrgSubmit()">
+                <div class="md-form">
+                  <input mdbInputDirective type="email" id="email" class="form-control" name="email" formControlName="emailLogin"
+                    [ngClass]="{'is-invalid':orgLoginForm.get('emailLogin').touched && orgLoginForm.get('emailLogin').invalid}">
+                  <label for="email" class="">Organization Email</label>
+                  <div *ngIf="orgLoginForm.get('emailLogin').touched && orgLoginForm.get('emailLogin').invalid" class="invalid-feedback">
+                    <div *ngIf="orgLoginForm.get('emailLogin').errors.required">Organization Email is required</div>
+                    <div *ngIf="orgLoginForm.get('emailLogin').errors.email || orgLoginForm.get('emailLogin').errors.pattern">Email should be valid</div>
+                  </div>
+                </div>
+                <div class="md-form">
+                  <input mdbInputDirective type="password" id="password" class="form-control" name="password" formControlName="passwordLogin"
+                    [ngClass]="{'is-invalid':orgLoginForm.get('passwordLogin').touched && orgLoginForm.get('passwordLogin').invalid}">
+                  <label for="password" class="">Organization Password</label>
+                  <div class="invalid-feedback">
+                    <div>Organization Password is required</div>
+                  </div>
+                </div>
+                <button mdbBtn type="submit" color="indigo" mdbWavesEffect class="sign-in_button" [disabled]="!orgLoginForm.valid">Sign-in</button>
+              </form>
+            <p class="text-center"><a routerLink="/forgot-password">Forgot password?</a></p>
+            <p class="text-center">Don't have an account? <a routerLink="/register">Register</a> here</p>
+          </mat-tab>
+      </mat-tab-group>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,192 @@
+/**Developer - Dheeraj Varshney B00808467 dh301823@dal.ca */
+// Modified By - Ajith Jayanthi B00825322 aj788769@dal.ca
+.product-list-1
+{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align:center;
+    padding:0 0 72px;
+    position:relative;
+ 
+}
+.product-list-header
+{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 60px;
+    color: black;
+}
+
+img
+{
+    width: 200px;
+    height: 200px;
+}
+
+.search-box
+{
+    margin-left: 100px;;
+    margin-right: 100px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.products_card{
+    position: relative;
+}
+
+
+.mb-4 input[type=text]:focus:not([readonly]) 
+{
+    border: 1px solid black;
+    box-shadow: 0 0 0 1px black;
+    
+}
+.mb-4
+{
+    margin: 40px;
+}
+
+img:hover{
+    cursor:pointer;
+}
+
+// media query for responsiveness https://www.w3schools.com/css/css_rwd_mediaqueries.asp
+@media (max-width: 714px)
+{
+    .product-list-header
+    {
+        font-size: 20px;
+    }
+}
+@media (min-width: 715px) and (max-width: 1050px)
+{
+    .product-list-header
+    {
+        font-size: 40px;
+    }
+}
+
+// New code
+
+.banner_image{
+    height: 400px;
+    background: url("https://www.intheblack.com/~/media/intheblack/allimages/magazine-2016/04-april/pet-shop-feature.jpg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.parallax{
+    background-attachment: fixed;
+}
+.category_title{
+    font-size: 25px;
+    line-height: 30px;
+}
+.custom-select{
+    width: 40%;
+}
+.product_page_heading{
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ccc;
+}
+.products_listing{
+    padding-bottom: 40px;
+}
+.dash{
+    width: 80%;
+    margin: 5px auto;
+    height: 1px;
+    background: #ccc;
+}
+.price_buttons{
+    padding-top: 10px;
+}
+.action_buttons{
+    float: right;
+    margin-top: 5px;
+}
+.action_buttons span{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+.price{
+    font-size: 23px;
+}
+mdb-card{
+    margin-bottom: 20px;
+}
+.card{
+    transition: 0.2s all ease;
+}
+.card:hover {
+    box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.category_col{
+    border-right: 1px solid #ccc;
+}
+.category_col{
+    .mt-85{
+        overflow: initial !important;
+    }
+}
+ .cart_button , .share_button{
+    transition: 0.2s all ease;
+}
+
+.cart_button:hover{
+    color: #923ad8;
+}
+.share_button:hover{
+    color: #ebc137;
+}
+mdb-card-img{
+    height: 200px;
+    overflow: hidden;
+    cursor: pointer;
+    display: block;
+}
+.pagination_wrapper{
+    min-width: 275px;
+    margin: 20px auto;
+}
+
+@media screen and (max-width:765px){
+    .product-list-header{
+        font-size: 30px;
+
+    }
+    
+
+}
+.mat-select{
+    width: 40%;
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+.category_col {
+    p{
+        padding: 15px;
+        cursor: pointer;
+    }
+    p:hover{
+        background:rgba(0, 0, 0, 0.03);
+    }
+}
+mdb-card-header{
+    cursor: pointer;
+}
+
+@media screen and (max-width:900px){
+    mdb-card-img{
+        height: 150px;
+    }
+}
+@media screen and (max-width:599px){
+    .custom-select{
+        width: 100%;
+    }
+    .category_col{
+        border: none;
+    }
+}

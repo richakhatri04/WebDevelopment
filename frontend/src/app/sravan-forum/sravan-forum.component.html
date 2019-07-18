@@ -1,0 +1,121 @@
+<!DOCTYPE html> 
+<title></title>
+<head>
+</head>
+<body>
+    
+
+<div  style=" margin-top : 150px;">
+    <button class="button-class"  mat-flat-button color="accent">Ask a question</button>
+
+    <div class="mt-25 container " >
+        <div class="row">
+            <div class ="col-md-8">
+                <mat-card class="he">
+                    <mat-card-header >
+                        <!-- Image taken from example shown in material.angular.io -->
+                        <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="dog">
+                        <h2 class="mat-h2"><a>{{ Forum_data_collection[0].title }}</a></h2>
+                        
+                        <div class="right"><h4 class="mat-h3" style="margin-bottom:auto;">{{ Forum_data_collection[0].replies }}</h4></div>
+                </mat-card-header>
+                    <mat-card-subtitle>
+                            <div class="sub">
+                            Posted by {{Forum_data_collection[0].author}} at {{ Forum_data_collection[0].time }}
+                            <div class= "rep">Replies</div>
+                            </div>
+                            
+                        
+                    </mat-card-subtitle>
+                </mat-card>
+
+                <mat-card class="he">
+                        <mat-card-header >
+                             <!-- Image taken from example shown in material.angular.io -->
+                            <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="dog1">
+                            <h2 class="mat-h2"><a>{{ Forum_data_collection[0].title }}</a></h2>
+                            
+                            <div class="right"><h4 class="mat-h3" style="margin-bottom:auto;">{{ Forum_data_collection[0].replies }}</h4></div>
+                    </mat-card-header>
+                        <mat-card-subtitle>
+                                <div class="sub">
+                                Posted by {{Forum_data_collection[0].author}} at {{ Forum_data_collection[0].time }}
+                                <div class= "rep">Replies</div>
+                                </div>
+                                
+                            
+                        </mat-card-subtitle>
+                    </mat-card>
+
+
+                    <mat-card class="he">
+                            <mat-card-header >
+                                 <!-- Image taken from example shown in material.angular.io -->
+                                <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="dog2">
+                                <h2 class="mat-h2"><a>{{ Forum_data_collection[0].title }}</a></h2>
+                                
+                                <div class="right"><h4 class="mat-h3" style="margin-bottom:auto;">{{ Forum_data_collection[0].replies }}</h4></div>
+                        </mat-card-header>
+                            <mat-card-subtitle>
+                                    <div class="sub">
+                                    Posted by {{Forum_data_collection[0].author}} at {{ Forum_data_collection[0].time }}
+                                    <div class= "rep">Replies</div>
+                                    </div>
+                                    
+                                
+                            </mat-card-subtitle>
+                        </mat-card>
+
+                        <mat-card class="he">
+                                <mat-card-header >
+                                     <!-- Image taken from example shown in material.angular.io -->
+                                    <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="dog3">
+                                    <h2 class="mat-h2"><a>{{ Forum_data_collection[0].title }}</a></h2>
+                                    
+                                    <div class="right"><h4 class="mat-h3" style="margin-bottom:auto;">{{ Forum_data_collection[0].replies }}</h4></div>
+                            </mat-card-header>
+                                <mat-card-subtitle>
+                                        <div class="sub">
+                                        Posted by {{Forum_data_collection[0].author}} at {{ Forum_data_collection[0].time }}
+                                        <div class= "rep">Replies</div>
+                                        </div>
+                                        
+                                    
+                                </mat-card-subtitle>
+                            </mat-card>
+
+                            <mat-card class="he">
+                                    <mat-card-header >
+                                         <!-- Image taken from example shown in material.angular.io -->
+                                        <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="dog4">
+                                        <h2 class="mat-h2"><a>{{ Forum_data_collection[0].title }}</a></h2>
+                                        
+                                        <div class="right"><h4 class="mat-h3" style="margin-bottom:auto;">{{ Forum_data_collection[0].replies }}</h4></div>
+                                </mat-card-header>
+                                    <mat-card-subtitle>
+                                            <div class="sub">
+                                            Posted by {{Forum_data_collection[0].author}} at {{ Forum_data_collection[0].time }}
+                                            <div class= "rep">Replies</div>
+                                            </div>
+                                            
+                                        
+                                    </mat-card-subtitle>
+                                </mat-card>
+            </div>
+                
+                    <div class= "col-md-4" >
+                            <h2 class="mat-h2" id="heading" ><a>Featured posts</a></h2>
+                        <div id="fposts">
+                            <mat-list role="list">
+                                    <mat-list-item role="listitem"><a>How to take care of your pet ? </a></mat-list-item>
+                                    <mat-list-item role="listitem"><a>How to adopt a cat</a></mat-list-item>
+                                    <mat-list-item role="listitem"><a>How to adopt a dog ?</a></mat-list-item>
+                                  </mat-list>
+
+                        </div>
+                    </div>   
+           
+        </div>
+    </div>
+</div>
+</body>

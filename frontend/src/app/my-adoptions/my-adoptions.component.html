@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="jumbotron">
+    <div class="">
+      <h2 class="text-center">My Adoptions</h2>
+    </div>
+    
+    <div class="mt-25"  *ngFor="let adopter of userAdopter">
+        <mat-expansion-panel >
+            <mat-expansion-panel-header>
+              <span class="header_title">
+                  <mdb-badge color="purple darken-4">{{adopter?.petDetail.petName}}</mdb-badge>
+              </span>
+            </mat-expansion-panel-header>
+            <p><mdb-badge color="indigo lighten-1">Adoption Status</mdb-badge>  {{adopter?.adoptionStatus}}</p>
+            <div class="progress" >
+                <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" *ngIf="adopter?.adoptionStatus==='Requested'">25%</div>
+                <div class="progress-bar prog-warning" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" *ngIf="adopter?.adoptionStatus==='Viewed'">50%</div>
+                <div class="progress-bar prog-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" *ngIf="adopter?.adoptionStatus==='Accepted'">100%</div>
+              </div>
+              <br>
+            <div #content class="pdf_content">
+              <h3 style="margin-bottom:25px;font-size: 35px;text-decoration: underline"> Adoption Request for {{adopter?.petDetail.petName}}</h3>
+              <hr style="margin:5px 0;border-top:1px solid;">
+              <p style="margin:10px 0"><span style="font-weight:bold">Adoption Id:</span> {{adopter?._id}}</p>
+              <p style="margin:10px 0"><span style="font-weight:bold">Pet Name:</span> {{adopter?.petDetail.petName}}</p>
+              <p style="margin:10px 0"><span style="font-weight:bold">Request Date:</span> {{adopter?.creationDate}}</p>
+
+              <hr style="margin:5px 0;border-top:1px solid;">
+              <h4 style="margin:25px 0;font-size: 25px;text-decoration: underline">Adopter Details</h4>
+              <hr style="margin:5px 0;border-top:1px solid;">
+              <p style="margin:10px 0"><span style="font-weight:bold">First Name:</span> {{adopter?.petAdopter.firstName}}</p>
+              <p style="margin:10px 0"><span style="font-weight:bold">Last Name:</span> {{adopter?.petAdopter.lastName}}</p>
+              <p style="margin:10px 0"><span style="font-weight:bold">Email:</span> {{adopter?.petAdopter.adopterEmail}}</p>
+              <p style="margin:10px 0"><span style="font-weight:bold">Phone Number:</span> {{adopter?.petAdopter.adopterPhone}}</p>
+              <p style="margin:10px 0"><span style="font-weight:bold">Address:</span> {{adopter?.petAdopter.adopterAddress}}</p>
+              <hr style="margin:5px 0;border-top:1px solid;">
+              <h4 style="margin:25px 0;font-size: 25px;text-decoration: underline">Adoption form Answers</h4>
+              <hr style="margin:5px 0;border-top:1px solid;">
+              <p style="margin:10px 0"><span style="font-weight:bold">Is this your first pet?:</span><br>{{adopter?.firstPet}}</p>
+            
+              <p style="margin:10px 0"><span style="font-weight:bold">Do you currently have any other pets?:</span><br>{{adopter?.curPet}}</p>
+            
+              <p style="margin:10px 0"><span style="font-weight:bold">What pets have you previously owned?</span><br>{{adopter?.prevPet}}</p>
+            
+              <p style="margin:10px 0"><span style="font-weight:bold;text-transform: capitalize">Tell us about what you are looking for in a new pet family member (age, sex, activity level, personality).</span><br>{{adopter?.adopterPetFamily}}</p>
+            
+              <p style="margin:10px 0"><span style="font-weight:bold;text-transform: capitalize">Does Your Job require you to move or travel often?</span><br>{{adopter?.travel}}</p>
+            
+              <p style="margin:10px 0"><span style="font-weight:bold;text-transform: capitalize">Are You willing to take responsibility for your pet's entire life, keeping up to date with yearly <br>vaccinations and tests?</span><br>{{adopter?.vacci}}</p>
+            
+              <p style="margin:10px 0"><span style="font-weight:bold;text-transform: capitalize">Is there a cat/dog behavior that would not be acceptable to you?</span><br>{{adopter?.petBehaviour}}</p>
+            
+              <p style="margin:10px 0"><span style="font-weight:bold;text-transform: capitalize">If this pet does not work out in your home, what will you do?</span><br>{{adopter?.petHome}}</p>
+            </div>
+            <button type="button" mdbBtn color="indigo" mdbWavesEffect (click)="downloadPDF()">Download PDF</button>
+            <mat-action-row>
+                <button type="button" mdbBtn color="danger" mdbWavesEffect (click)="deleteAdoption(adopter?._id)">Delete</button>
+            </mat-action-row>
+          </mat-expansion-panel>
+        </div>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<head>
+    <title>Donate</title>
+</head>
+
+<body>
+  
+<div class="custom-style">
+<div id= "root" class="row">
+    <div class="col-sm">
+    <mat-card >
+      <!-- Images used are taken from Unsplash, “Instagram @brad.lloyd | HD photo by Brad Lloyd (@bradlloyd) on Unsplash,” Beautiful Free Images & Pictures. [Online]. Available: https://unsplash.com/photos/xy1Yo_MHDvQ. [Accessed: 01-Jun-2019]. -->
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Campaign Name </mat-card-title>
+          <mat-card-subtitle>Organization X</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image class= "img-resize" src="https://images.unsplash.com/photo-1523289770562-0f17b2aabdd8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=632&q=80" alt="animal rescue">
+        <mat-card-content>
+            <h5 style="text-align:center;"> Goal: 40 CAD OF 100 CAD </h5>  
+          <p>
+              
+              <mat-progress-bar mode="determinate" value="40"> value </mat-progress-bar>
+               <span></span>
+                
+          </p>
+
+          <p>
+              {{desc}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>Read more </button>
+          <button mat-fab color="warn" style="margin-left:72%;">Donate</button>
+        </mat-card-actions>
+      </mat-card>
+      
+      </div>
+
+      <div class="col-sm">
+      <mat-card >
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title> Campaign name  </mat-card-title>
+            <mat-card-subtitle> Organization Y </mat-card-subtitle>
+          </mat-card-header>
+          <!-- Image taken from example shown in material.agular.io -->
+          <img mat-card-image class= "img-resize" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+          <mat-card-content>
+              <h5 style="text-align:center;"> Goal: 60 CAD OF 100 CAD </h5>  
+            <p>
+                
+                <mat-progress-bar mode="determinate" value="60"> value </mat-progress-bar>
+                 <span></span>
+                  
+            </p>
+  
+            <p>
+                {{desc}}
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button>Read more </button>
+            <button mat-fab color="warn" style="margin-left:72%;">Donate</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      
+</div>
+</div>
+</body>

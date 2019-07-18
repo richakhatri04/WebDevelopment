@@ -1,0 +1,118 @@
+
+#fpage
+{
+    // Image taken from Unsplash, https://unsplash.com/photos/xy1Yo_MHDvQ. [Accessed: 01-Jun-2019].
+background: url(https://images.unsplash.com/photo-1474201249988-1c597f903bf8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80) no-repeat center center fixed;
+display: table;
+height: 700px !important;
+width: 100% !important;
+position: relative;
+background-size: cover;
+padding-bottom: 10px;
+align-items: center;
+
+}
+
+.mat-h2
+{
+    text-align: center;
+    padding-top: 10%;
+}
+.shape
+{
+    font-family: Arial, Helvetica, sans-serif;
+    height:auto;
+}
+.content
+{   display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+}
+
+.crop
+{
+
+        border: 1px solid #ddd; 
+        border-radius: 4px;  
+        padding: 5px; 
+        width: 300px;
+        height: 300px;
+        margin: auto;    
+        display: block;
+        
+}
+.row
+{
+    margin-bottom: 5%;
+    margin-top: 2%;
+}
+
+
+
+.style
+
+{
+    background-color: #dcd5e8;
+    color: white;
+    text-align: center;
+    margin-top: 2%;
+    padding: 5% 5% 10% 5%;
+}
+.padding
+{   text-align: center;
+    margin-bottom: 0%; 
+    
+}
+
+.fab
+{
+    padding: 15px;
+    font-size: 25px;
+
+}
+
+.new
+
+{
+    padding: 2% 5% 5% 5%;
+}
+
+.col-md-4 h4
+{
+    padding: 15px;
+}
+
+.card {
+    margin: 0 auto; 
+    float: none; 
+    margin-bottom: 10px; 
+}
+
+.space {
+    border: 1px solid #ddd; 
+    border-radius: 4px; 
+    padding: 5px; 
+    width: 150px; 
+  }
+
+.resize
+{
+    width: 60%;
+}
+
+ #center-out
+ {
+     text-align: center;
+ }
+
+ .text-center
+
+ {
+     padding-top: 2%;
+ }
+
+ .blah
+ {
+     border: 10px solid red;
+ }

@@ -1,0 +1,114 @@
+<div class="outer-container">
+  <div class="row top-row">
+    <div id="fpage">
+      <div class="content">
+        <h2>Adopt a pet today </h2>
+        <br>
+        <button mat-mini-fab routerLink="/pets">
+          <!-- Icon taken from “Font Awesome 5,” Font Awesome. [Online]. Available: https://fontawesome.com/. [Accessed: 01-Jun-2019]. -->
+          <i class="fas fa-paw"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row secondary-row">
+    <div class="col-12 title-row">
+      <h3>Featured Pets</h3>
+    </div>
+    <div class="col-12 card-row">
+    <!-- Vaguely based on the card tutorial found at https://getbootstrap.com/docs/4.0/components/card/ -->
+    <div *ngFor="let pet of samplePets" class="d-inline-block card">
+      <img class="card-img-top" src="https://www.catcafestudio.com/wp-content/uploads/2018/09/IMG_0266.jpg" alt="Cat">
+      <div class="card-body">
+        <h5 class="card-title">{{pet}}</h5>
+        <p class="card-text">Cat ipsum dolor sit amet, go for world domination lick human with sandpaper tongue but groom
+          yourself 4 hours - checked, have your beauty sleep 18 hours - checked, be fabulous for the rest of the day -
+          checked but eat plants, meow, and throw up because i ate plants. Shake treat bag. </p>
+        <div class="link-container">
+          <a routerLink="/">Details</a>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="row middle-row">
+    <div class="col-lg-6 col-md-12 col-sm-12">
+      <div class="raised-card">
+        <div class="raised-content">
+          <h4 class="extra-large-text">Why Rescue?</h4>
+          <p>Give me attention or face the wrath of my claws decide to want nothing to do with my owner today for lick arm
+        hair yet annoy the old grumpy cat, start a fight and then retreat to wash when i lose i like to spend my days
+        sleeping and eating fishes</p>
+          <a routerLink="/rescue">Read More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-12 col-sm-12 lower-img">
+      <img src="https://catcafestudio.b-cdn.net/wp-content/uploads/2018/08/851316f8-ef16-4580-813f-42b7793732e8.jpg" alt="Dog">
+    </div>
+  </div>
+  <div class="row middle-row">
+    <div class="col-lg-6 col-md-12 col-sm-12 lower-card">
+      <!-- Icon taken from “We Love SoLo,” We Love SoLo. [Online]. Available: https://www.welovesolo.com/free-donate-icon-vector/. [Accessed: 18-Jun-2019]. -->
+      <img class="leftimg" src="../../assets/images/donate-icon.png" alt="Donate">
+      <p class="lower-content">Give me attention or face the wrath of my claws decide to want nothing to do with my owner today for lick arm
+        hair yet annoy the old grumpy cat, start a fight and then retreat to wash when i lose i like to spend my days
+        sleeping and eating fishes that my human fished for me we live on a luxurious yacht, sailing proudly under the sun,
+        i like to walk on the deck, watching the horizon, dreaming of a good bowl of milk sniff all the things. My left
+        donut is missing, as is my right stares at human while pushing stuff off a table jump around on couch, meow constantly
+        until given food, i show my fluffy belly but it's a trap! if you pet it i will tear up your hand and soft kitty
+        warm kitty little ball of fur. </p>
+    </div>
+    <div class="col-lg-6 col-md-12 col-sm-12">
+      <div class="raised-card">
+        <div class="raised-content">
+          <h4 class="extra-large-text">Why Donate?</h4>
+          <p>Give me attention or face the wrath of my claws decide to want nothing to do with my owner today for lick arm
+        hair yet annoy the old grumpy cat, start a fight and then retreat to wash when i lose i like to spend my days
+        sleeping and eating fishes</p>
+          <a routerLink="/donate">Read More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row middle-row">
+    <div class="col-lg-6 col-md-12 col-sm-12">
+      <div class="raised-card">
+        <div class="raised-content">
+          <h4 class="extra-large-text">Our Stories</h4>
+          <p>Give me attention or face the wrath of my claws decide to want nothing to do with my owner today for lick arm
+        hair yet annoy the old grumpy cat, start a fight and then retreat to wash when i lose i like to spend my days
+        sleeping and eating fishes</p>
+          <a routerLink="/blogs">Read More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-12 col-sm-12 lower-img">
+      <img src="https://catcafestudio.b-cdn.net/wp-content/uploads/2018/08/851316f8-ef16-4580-813f-42b7793732e8.jpg" alt="Dog">
+    </div>
+  </div>
+  <div class="row secondary-row events-row">
+    <div class="col-12 title-row">
+      <h3>Upcoming Events</h3>
+    </div>
+    <div class="col-12 card-row">
+      <!-- Vaguely based on the card tutorial found at https://getbootstrap.com/docs/4.0/components/card/ -->
+    <div *ngFor="let event of sampleEvents" class="d-inline-block card">
+      <img class="card-img-top" src="https://catcafestudio.b-cdn.net/wp-content/uploads/2018/08/851316f8-ef16-4580-813f-42b7793732e8.jpg" alt="Dog">
+      <div class="card-body">
+        <h5 class="card-title">{{event}}</h5>
+        <p class="card-text">
+          Headbutt owner's knee white cat sleeps on a black shirt behind the couch freak human out make funny noise mow
+          mow mow mow mow mow success now attack human. Have a lot of grump in yourself because you can't forget to be
+          grumpy and not be like king grumpy cat cereal boxes make for five star accommodation yet mouse so try to hold
+          own back foot to clean it but foot reflexively kicks you in face, go into a rage and bite own foot, hard scream
+          at teh bath, dismember a mouse and then regurgitate parts of it on the family room floor or stare out the window.</p>
+        <!--TODO: Temporary link. Will redirect to the corresponding pet's profile page once we have real data-->
+        <div class="link-container">
+          <a routerLink="/pets">Details</a>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>

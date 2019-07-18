@@ -1,0 +1,72 @@
+<div class="outer-container">
+  <div class="row page-title">
+    <h1>Approve Content</h1>
+  </div>
+  <div class="row">
+    <div class="page-content col-12">
+      <div class="user-list">
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link" [ngClass]="{ 'active': tabSelected == 0 }" (click)="showPets()">Pet Profiles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [ngClass]="{ 'active': tabSelected == 1 }" (click)="showItems()">Shop Items</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [ngClass]="{ 'active': tabSelected == 2 }" (click)="showPosts()">Blog Posts</a>
+          </li>
+        </ul>
+        <div class="table-container">
+            <div *ngIf="!Stories?.length > 0">
+                <p class="error_no_pets">No Story Posts available!</p>
+                <a mdbBtn color="primary" class="waves-light toggle_button" mdbWavesEffect
+                  href="/">Go back Home</a>
+              </div>
+          <table>
+            <tr *ngFor="let story of Stories">
+              <td class="image-cell">
+                <img class="img-thumbnail" [src]="story.storyPicModel" [alt]="story.storyTitle">
+              </td>
+              <td class="description-cell">
+                <div class="text-container">
+                  {{story.storyTitle}}
+                </div>
+              </td>
+              <td class="author-cell">
+                <!--TODO: link to user profile if/when applicable-->
+                <a href="/approve_content">{{story.storyPublisher.firstName}}</a>
+              </td>
+              <td class="button-cell">
+                <div class="button-container">
+                  <button class="btn-success btn-sm" (click) = "updateStory(story._id,false)">Approve</button>
+                  <button class="btn-light btn-sm" (click)="updateStory(story._id,true)">Delete</button>
+                  <!-- <button class="btn-light btn-sm" (click)="confirmDelete.show()">Delete</button> -->
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div mdbModal #confirmDelete="mdbModal" class="modal fade" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Are You Sure?</h5>
+          <button type="button" class="close" title="Close" (click)="confirmDelete.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>If you delete this post, it will not be saved or displayed on Stray Spirit. This action cannot be undone.</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" (click)="confirmDelete.hide()">Cancel</button>
+          <button class="btn btn-primary" (click)="updateStory(story._id,true)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

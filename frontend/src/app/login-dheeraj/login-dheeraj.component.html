@@ -1,0 +1,41 @@
+<!--Developer - Dheeraj Varshney B00808467 dh301823@dal.ca-->
+<!-- Default form login -->
+<div class="container mt-85">
+  <h2 class = "header2">Sign In </h2>
+  <form class="text-center border border-light p-5" name = "form" [formGroup]="form">
+
+   <!-- Email -->
+    <div class = "form group" >
+    <input type="email" id="Email" class="form-control md" placeholder="Email" formControlName = "email" [ngClass] = "{'is-invalid': form.get('email').touched && form.get('email').invalid}"/>
+    <div *ngIf = "form.get('email').touched && form.get('email').invalid" class="invalid-feedback">
+      <div *ngIf = "form.get('email').errors.required">Email name is required</div>
+      <div *ngIf = "form.get('email').errors.email ">Email should be a valid address</div>
+    </div>
+  </div>
+    <!-- Password -->
+    <div class ="form-group">
+    <input type="password" id="Password" class="form-control" placeholder="Password" formControlName = "password" [ngClass] = "{'is-invalid': form.get('password').touched && form.get('password').invalid}"/>
+    <div *ngIf = "form.get('password').touched && form.get('password').invalid" class="invalid-feedback">
+      <div *ngIf = "form.get('password').errors.required">Password is required</div>
+      
+    </div>
+  </div>
+      <div class = "forgotmargin">
+        <!-- Forgot password -->
+        <a routerLink = "/forgot-pwd">Forgot password?</a>
+      </div>
+   
+
+    <!-- Sign in button -->
+    <button mdbBtn color="info"  class="my" type="submit" [disabled]="!form.valid" (click)="onClick()" >Login</button>
+
+    <!-- Register -->
+    <div class = "register">
+    <p>Not a member?
+      <a href="">Register</a>
+    </p>
+  </div>
+
+   </form>
+  <!-- Default form login -->
+</div>

@@ -1,0 +1,24 @@
+.resgister_button{
+    display: block;
+    margin: 10px auto;
+    letter-spacing: 2px;
+}
+.jumbotron{
+    padding: 0.5rem 3rem;
+}
+.help-block{
+    color: #f44336;
+    font-size: 14px;
+}
+.md-form .form-control{
+    margin: 0 0 0.2rem 0; 
+}
+@media screen and (max-width: 599px){
+.jumbotron{
+    padding: 0;
+    .container{
+        padding: 0 15px;
+    }
+}
+
+}

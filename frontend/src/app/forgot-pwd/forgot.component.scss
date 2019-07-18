@@ -1,0 +1,35 @@
+// Developer - Dheeraj Varshney B00808467 dh301823@dal.ca
+
+
+.form-control,.submitbtn 
+{
+  
+   margin: auto;
+   margin-bottom: 30px;
+    
+
+}
+
+// form-control,.forgotmargin,.my,.register
+// {
+// // margin-top: 20px;
+// padding: 20px;
+
+
+// }
+
+
+.header2
+{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 60px;
+}
+// media query for responsiveness
+@media (max-width: 374px)
+{
+    #Email,.header2
+    {
+        font-size: 15px;
+    }
+}

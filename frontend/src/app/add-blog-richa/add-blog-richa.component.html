@@ -1,0 +1,143 @@
+<!-- Developed by Richa Khatri (B00792218) - Richa.khatri@dal.ca -->
+<div class="container mt-85">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <div class="container">
+                <h2 class="text-center mt-25">Blog Story</h2>
+                <!--Form Begins-->
+                <form name="addBlogForm" [formGroup]="addBlogForm" (submit)="addBlogs()">
+                    <!--Title-->
+                    <div class="col-sm">
+                        <div class="md-form">
+                            <input mdbInputDirective type="text" id="blogTitle" class="form-control" name="blogTitle"
+                                formControlName="blogTitle"
+                                [ngClass]="{'is-invalid':addBlogForm.get('blogTitle').touched && addBlogForm.get('blogTitle').invalid}">
+                            <label for="blogTitle" class="">Blog Title *</label>
+                            <div *ngIf="addBlogForm.get('blogTitle').touched && addBlogForm.get('blogTitle').invalid"
+                                class="invalid-feedback">
+                                <div *ngIf="addBlogForm.get('blogTitle').errors.required"> Blog Title is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/Title-->
+  
+                    <!--Content-->
+                    <div class="col-sm">
+                        <div class="md-form">
+                            <textarea mdbActive id="content" placeholder="Blog Content ... *" class="form-control" name="content" rows="6"
+                                formControlName="content"
+                                [ngClass]="{'is-invalid':addBlogForm.get('content').touched && addBlogForm.get('content').invalid}"></textarea>
+                            <div *ngIf="addBlogForm.get('content').touched && addBlogForm.get('content').invalid"
+                                class="invalid-feedback">
+                                <div *ngIf="addBlogForm.get('content').errors.required">Content is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/Content-->                 
+                  
+                    <!--Pet Category and Pet Topic-->
+                        <div class="row">
+                            <!--Pet Category-->
+                            <div class="col-md-6">
+                                <div class="md-form">
+                                    <mat-form-field>
+                                            <mat-label>Type of Pet*</mat-label>
+                                            <mat-select placeholder="Pet Category" formControlName="petCategory" id="petCategory" name="petCategory"
+                                            [ngClass]="{'is-invalid':addBlogForm.get('petCategory').touched && addBlogForm.get('petCategory').invalid}">
+                                                    <mat-option value="Cat">
+                                                        Cat
+                                                    </mat-option>
+                                                    <mat-option value="Dog">
+                                                        Dog
+                                                    </mat-option>
+                                                    <mat-option value="Others">
+                                                            Other Pets
+                                                            </mat-option>
+                                            </mat-select>
+                                    </mat-form-field>
+                                    <mat-error *ngIf="addBlogForm.get('petCategory').touched && addBlogForm.get('petCategory').invalid && addBlogForm.get('petCategory').hasError('required')">Please choose a category</mat-error>
+                                </div>
+                            </div>
+                            <!--Pet Category-->
+                            <!--Pet Topic-->
+                            <div class="col-md-6">
+                                <div class="md-form">
+                                    <mat-form-field>
+                                            <mat-label>Related Topic*</mat-label>
+                                            <mat-select placeholder="Related Topic" formControlName="petTopic" id="petTopic" name="petTopic"
+                                            [ngClass]="{'is-invalid':addBlogForm.get('petTopic').touched && addBlogForm.get('petTopic').invalid}">
+                                                    <mat-option value="Health">
+                                                    Health
+                                                    </mat-option>
+                                                    <mat-option value="Food">
+                                                    Food
+                                                    </mat-option>
+                                                    <mat-option value="Training">
+                                                    Training
+                                                    </mat-option>
+                                                    <mat-option value="Product">
+                                                    Product
+                                                    </mat-option>
+                                                    <mat-option value="Trends">
+                                                    Trends
+                                                    </mat-option>
+                                                    <mat-option value="Others">
+                                                    Others
+                                                    </mat-option>
+                                            </mat-select>
+                                    </mat-form-field>
+                                    <mat-error *ngIf="addBlogForm.get('petTopic').touched && addBlogForm.get('petTopic').invalid && addBlogForm.get('petTopic').hasError('required')">Please choose a Relevant Topic</mat-error>           
+                                </div>
+                            </div>
+                            <!--Pet Topic-->
+                        </div>
+                    <!--Pet Category and Pet Topic-->                    
+
+                     
+                    <!--Image Upload and Expiry Date-->
+                    <div class="row">
+                        <!--Image Upload-->
+                            <div class="col-md-6">
+                                    <div class="md-form">
+                                            <input name="imageUrl" type="file" accept="image/*" (change)="handleInputChange($event)" />
+                                        </div>
+                                            <img [src]="imageSrc" style="max-width:150px;max-height:150px"/>
+                                            <div class="image_preview" *ngIf="imagePreview !== '' && imagePreview">
+                                            <img [src]="imagePreview" [alt]="addBlogForm.blogTitle" class="img-fluid">
+                                            </div>
+                            </div>
+                        <!--Image Upload-->
+
+                        <!--Expiry Date-->
+                            <div class="col-md-6">
+                                    <mat-form-field>
+                                            <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="blogExpiryDate" id="blogExpiryDate" name="blogExpiryDate">
+                                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker></mat-datepicker>
+                                        </mat-form-field>
+                            </div>
+                        <!--Expiry Date-->                        
+                    </div>
+                    <!--Image Upload and Expiry Date-->
+                      
+                 
+                    <!--Add button-->
+                    <div class="col-sm">
+                     <div class="md-form">
+                    <button mdbBtn type="submit" color="indigo" mdbWavesEffect
+                        [disabled]="!addBlogForm.valid">Add</button>
+                      </div>
+                      </div>
+                    <!--/Add button-->
+                    
+  
+                    <br />
+                    <!--Add Success Message-->
+                    <p><b>{{myTxt}}</b></p>
+                    <!--/Add Success Message-->
+                </form>
+                <!--Form Ends-->
+            </div>
+        </div>
+    </div>
+  </div>

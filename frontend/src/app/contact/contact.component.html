@@ -1,0 +1,33 @@
+<!-- Authored by Aparna Sridhar[B00799570]-->
+<div class="mt-85" style="margin-bottom: 55px">
+<div class="col-md-7">
+  <!--Form examples from https://mdbootstrap.com/docs/angular-->
+<form class="text-center border border-light p-5" [formGroup]="contactForm">
+  <p class="h3 mb-4">Contact us</p>
+  <input type="text" id="ContactName" mdbInputDirective class="form-control mb-4" formControlName="contactFormName"  placeholder="Name">
+  <input mdb-error="disable" type="email" formControlName="contactFormEmail" id="ContactEmail" mdbInputDirective
+    class="form-control mb-4" placeholder="E-mail">
+    <input type="text" id="contactFormSubject" mdbInputDirective
+    class="form-control mb-4" placeholder="Subject">
+  <div class="form-group">
+    <textarea class= "form-control md-textarea" rows="6" placeholder="Type your message here"></textarea>
+  </div>
+  <div class="custom-control custom-checkbox mb-4">
+    <input type="checkbox" class="custom-control-input" id="defaultContactFormCopy">
+    <label class="custom-control-label" for="defaultContactFormCopy">Send me a copy of this message</label>
+  </div>
+<button id= "mybutton" mdbBtn style="width: 20%" color="default" class= "myButton" block="true" (click)= "basicModal.show()" mdbWavesEffect type="submit" >Send</button>
+<div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        Thanks for your valuable feedback. We will get back to you shortly!
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+</div>
+</div>
+
+

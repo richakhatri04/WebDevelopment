@@ -1,0 +1,31 @@
+<!--Authored by Aparna Sridhar [B00799570]-->
+<div class="mt-85">
+    <div class= "container"> 
+  <br>
+<h4><strong>Top Events List</strong></h4>
+     <div id= "root" class="row">
+  <div class="col-md-4" *ngFor = "let event of allevents; let i=index">
+    <mdb-card class= "cards" narrower ="true">
+        <div class="view view-cascade overlay waves-light" mdbWavesEffect>
+            <a routerLink="/event-detail/{{event._id}}">  
+              <mdb-card-img mdbWavesEffect [src]= "event.eventPic" [alt] = "event.eventName"></mdb-card-img>
+              </a> 
+        </div>
+      <mdb-card-body cascade="true" class="text-center">
+        <h3 class="card-title">
+          <strong> {{event.eventName}}</strong>
+        </h3>
+        <mdb-card-text>
+          {{event.eventDescription}}<a routerLink = "/event-detail/{{event._id}}">Read more..</a>
+        </mdb-card-text>
+        <a (click) = "register(i)" mdbBtn color="info" mdbWavesEffect *ngIf="!isloggedin"> Register</a>
+      </mdb-card-body>
+      <!--/.Card content-->
+
+    </mdb-card>
+    <!--/.Card-->
+    
+  </div>
+</div>
+</div>
+</div>

@@ -1,0 +1,140 @@
+<div class="jumbotron-fluid jumbotron">
+  <div class="container">
+    <mat-tab-group>
+      <mat-tab label="Add a Pet">
+        <div class="container my_ads_content">
+          <h2 class="text-center mt-25">Add a Pet</h2>
+          <form method="POST" name="addPetsForm" [formGroup]="addPetsForm" (submit)="addPet()"  enctype="multipart/form-data">
+              <div class="md-form">
+                <input mdbInputDirective type="name" id="petName" class="form-control" name="petName" formControlName="petName"
+                  [ngClass]="{'is-invalid':addPetsForm.get('petName').touched && addPetsForm.get('petName').invalid}">
+                <label for="petName" class="">Pet Name</label>
+                <div *ngIf="addPetsForm.get('petName').touched && addPetsForm.get('petName').invalid" class="invalid-feedback">
+                  <div *ngIf="addPetsForm.get('petName').errors.required">Pet Name is required</div>
+                  <div *ngIf="addPetsForm.get('petName').errors.pattern">Only character values allowed</div>
+                </div>
+              </div>
+              <div class="md-form">
+              <mat-select placeholder="Pet Category" formControlName="petCategory">
+                  <mat-option value="Feline">
+                    Feline
+                  </mat-option>
+                  <mat-option value="Canine">
+                    Canine
+                  </mat-option>
+                </mat-select>
+                </div>
+                <div class="md-form">
+                <mat-select placeholder="Pet Gender" formControlName="petGender">
+                    <mat-option value="Male">
+                      Male
+                    </mat-option>
+                    <mat-option value="Female">
+                      Female
+                    </mat-option>
+                  </mat-select>
+                  </div>
+                  <div class="md-form">
+                  <mat-select placeholder="Pet Age" formControlName="petAge">
+                      <mat-option value="Young">
+                        Young
+                      </mat-option>
+                      <mat-option value="Adult">
+                        Adult
+                      </mat-option>
+                      <mat-option value="Senior">
+                        Senior
+                      </mat-option>
+                    </mat-select>
+                    </div>
+                    <div class="md-form">
+              <mat-select placeholder="Pet Health" formControlName="petHealth">
+                  <mat-option value="Vaccinated">
+                    Vaccinated
+                  </mat-option>
+                  <mat-option value="Not Vaccinated">
+                    Not Vaccinated
+                  </mat-option>
+                  <mat-option value="Not Sure">
+                    Not Sure
+                  </mat-option>
+                </mat-select>
+                    </div>
+                    
+            <div class="md-form">
+              <input mdbInputDirective type="name" id="petLocation" class="form-control" name="petLocation"
+                [matAutocomplete]="auto" formControlName="searchLocation" (keydown)="onKeydown($event)" [ngClass]="{'is-invalid':addPetsForm.get('searchLocation').touched && addPetsForm.get('searchLocation').invalid}">
+              <label for="petLocation" class="">Location</label>
+              <div *ngIf="addPetsForm.get('searchLocation').touched && addPetsForm.get('searchLocation').invalid"
+                class="invalid-feedback">
+                <div *ngIf="addPetsForm.get('searchLocation').errors.required">Pet Location is required</div>
+              </div>
+            </div>
+            <mat-autocomplete #auto="matAutocomplete" (optionSelected)='filterPet($event.option.value)'>
+              <ng-container *ngFor="let location_value of api_location?.suggestions">
+                <mat-option
+                  [value]="location_value.address.city+comma+ location_value.address.state+comma+ location_value.address.country"
+                  *ngIf="location_value.address.city && location_value.address.state && location_value.address.country">
+                  <span>{{location_value.address.city}}, {{location_value.address.state}},
+                    {{location_value.address.country}}</span>
+                </mat-option>
+              </ng-container>
+            </mat-autocomplete>
+                    <div class="md-form">
+                        <!-- <input type="file" required name="uploadPic" value="Select Picture" (change)="onImagePicked($event)" > -->
+                        <input name="imageUrl" type="file" accept="image/*" (change)="handleInputChange($event)" />
+                      </div>
+                      <img [src]="imageSrc" style="max-width:300px;max-height:300px"/>
+                      <div class="image_preview" *ngIf="imagePreview !== '' && imagePreview">
+                        <img [src]="imagePreview" [alt]="addPetsForm.petName" class="img-fluid">
+                      </div>
+                    <div class="md-form">
+                        <i class="fas fa-pencil-alt prefix"></i>
+                        <textarea type="text" id="petDescription" class="md-textarea form-control" mdbInputDirective formControlName="petDescription" ></textarea>
+                        <label for="petDescription">Pet Description</label>
+                      </div>
+            <button mdbBtn type="submit" color="indigo" mdbWavesEffect class="sign-in_button" [disabled]="!addPetsForm.valid" >Add</button>
+             </form>
+            </div>
+          </mat-tab>
+          <mat-tab label="My listings">
+            <div class="container my_ads_listings">
+                <h2 class="text-center mt-25">My current pet listings</h2>
+                <!-- Using angular material expansion panel. Available at https://material.angular.io/components/expansion/overview -->
+                <div class="error_div" *ngIf="!petFound">No pets added by you!</div>
+                  <div class="mt-25"  *ngFor="let petListings of petListing">
+                  <mat-expansion-panel >
+                      <mat-expansion-panel-header>
+                        <span class="img-circle">
+                          <img [src]="petListings?.petPic" [alt]="petListings?.petName" class="pet-listing-image img-fluid">
+                        </span>
+                        <span class="header_title">
+                            <mdb-badge color="purple darken-4">{{petListings?.petName}}</mdb-badge>
+                        </span>
+                      </mat-expansion-panel-header>
+                      <p><mdb-badge color="indigo lighten-1">Location</mdb-badge> {{petListings?.petLocation?.petCity}}, {{petListings?.petLocation?.petState}}, {{petListings?.petLocation?.petCountry}}</p>
+                      <p><mdb-badge color="indigo lighten-1">Gender</mdb-badge> {{petListings?.petGender}}</p>
+                      <p><mdb-badge color="indigo lighten-1">Category</mdb-badge>  {{petListings?.petCategory}}</p>
+                      <p><mdb-badge color="indigo lighten-1">Vaccination Status</mdb-badge>  {{petListings?.petHealth}}</p>
+                      <p><mdb-badge color="indigo lighten-1">Adoption Status</mdb-badge>  {{petListings?.adoptionStatus}}</p>
+                      <hr>
+                      <p><mdb-badge color="indigo lighten-1 about_pet_badge">About {{petListings?.petName}}</mdb-badge></p>
+                      <div class="">
+                        <p> {{petListings?.petDescription}}</p>
+                      </div>
+                      <mat-action-row>
+                          <a routerLink="/profile/adoption-request/{{petListings?._id}}">
+                            <button type="button" mdbBtn color="indigo" mdbWavesEffect>View Adoption Requests</button>
+                          </a>
+                          <a routerLink="/profile/edit-pet/{{petListings?._id}}">
+                            <button type="button" mdbBtn color="warning" mdbWavesEffect>Edit</button>
+                          </a>
+                          <button type="button" mdbBtn color="danger" mdbWavesEffect (click)="deletePet(petListings?._id)">Delete</button>
+                      </mat-action-row>
+                    </mat-expansion-panel>
+                  </div>
+            </div>
+          </mat-tab>
+          </mat-tab-group>
+          </div>
+          </div>

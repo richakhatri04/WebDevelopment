@@ -1,0 +1,122 @@
+// developed by Ajith Jayanthi B00825322 aj788769@dal.ca
+.hr-class{
+    border: 1px solid black;
+    margin-left: 7%;
+    margin-right:18%;
+}
+.heading-border{
+    margin-bottom: 8px;
+    margin-top: 25px;
+    width: 80%;
+    margin-left: 20%;
+}
+.product-card{
+    width: 80%;
+    margin-left: 20%;
+}
+.price_mobile_both{
+    display: none;
+}
+.remove_product_mobile{
+    display:none;
+}
+.remove_product_desktop{
+    display: block;
+}
+.grand-total{
+    margin-left:- 5%;
+}
+.desktop-total{
+    display: block;
+}
+.mobile-total{
+    display: none;
+}
+.tab-total{
+    display: none;
+}
+.check-out-button{
+    border-radius: 12px;
+    background-color: #8080ff;
+    color: white;
+    cursor: pointer;
+}
+.remove_product_desktop:hover{
+    color: red;
+    cursor: pointer;
+}
+.remove_product_mobile:hover{
+    color: red;
+    cursor: pointer;  
+}
+.check-out-button:hover{
+    color: #ffb3b3;
+    cursor: pointer;
+}
+.address-label{
+    margin-left: 5%;
+    margin-top: 1%;
+}
+.address-input{
+    margin-left: 5%;
+    width: 80%;
+    border-radius: 12px;
+}
+::ng-deep .mat-horizontal-stepper-header {
+    pointer-events: none !important;
+}
+
+@media screen and (max-width:960px){
+    .mobile-header{
+        display: none;
+    }
+}
+
+@media screen and (max-width:768px){
+    .price_quantity_lap{
+        display: none;
+    }
+    .mobile-header{
+        display: none;
+    }
+    .remove_product_desktop{
+        display: none;
+    }
+    .price_mobile_both{
+        display: block;
+    }
+    .remove_product_mobile{
+        display: block;
+        margin-left: 10%;
+    }
+    .tab-total{
+        display: block;
+    }
+    .desktop-total{
+        display: none;
+    }
+    .mobile-total{
+        display: none;
+    }
+}
+@media screen and (max-width:576px) {
+    .price_mobile_both{
+        display: block;
+    }
+    .remove_product_mobile{
+        display: block;
+        margin-left: 10%;
+    }
+    .grand-total{
+        margin-left: 17%
+    }
+    .desktop-total{
+        display: none;
+    }
+    .mobile-total{
+        display: block;
+    }
+    .tab-total{
+        display: none;
+    }
+}

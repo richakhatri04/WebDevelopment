@@ -1,0 +1,128 @@
+<!-- Developed by Ajith Jayanthi B00825322 aj788769@dal.ca -->
+<!DOCTYPE html>
+<div  class="mt-85">
+    <!-- stepper for shopping cart https://material.angular.io/components/stepper/overview -->
+    <mat-horizontal-stepper   [linear]="isLinear" #stepper>
+        <mat-step  [stepControl]="firstFormGroup">
+          
+            <ng-template matStepLabel>Shopping Cart</ng-template>
+            <div *ngIf=" cart_items.length == 0">
+              <!-- https://i.stack.imgur.com/3FDPa.png-->
+              <img  style="height:100%; width :100%" class="img-width-height" src="../assets/images/shoppingcartempty.png" alt="emptyshoppingcart"/>
+              <button   style="margin-left: 45%;width: 15%;" class="check-out-button" routerLink="/shop">Shop</button>
+            </div>
+            <div *ngIf=" cart_items.length != 0">
+            <h2 class="text-center" style="margin-top:25px">Cart</h2>
+            <div class="row mobile-header heading-border" style="margin-top:25px" >
+                <div class="col-md-2">Product</div>
+                <div class="col-md-4"></div>
+                <div class="col-md-1">Quantity</div>
+                <div class="col-md-1">Price</div>
+                <div class="col-md-1">SubTotal</div>
+                <div class="col-md-3">Action</div>
+              </div>
+              <div *ngFor="let product of cart_items">
+                <div style="margin-top:1%">
+              <mdb-card  style="margin-left: 17%;margin-right: 7%">
+                <div class="row" >
+                    <div class="col-md-2 col-sm-4">
+                        <img [src]="product.productpic" [alt]="product.productname" class="img-fluid">
+                    </div>
+                    <div class="col-md-4 col-sm-8" style="margin-top:4%">
+                      <label style="margin-left: 1%">{{product.productname}}</label>
+                      <div class="price_mobile_both">
+                          <label style="margin-left:5%"> {{product.productprice}}</label>
+                          <input [(ngModel)]="product.itemcount" style="margin-left:18%;width: 20%" min= "1" type="number" (click)="count_items_update(product.productpic,product.productname,product.itemcount)">
+                      </div>
+                    </div>
+                    <div class="col-md-1 price_quantity_lap" style="margin-left: 7%;margin-top: 4%;">
+                        <input  [(ngModel)]="product.itemcount" style="width: 100%" class="col-xs-3" min= "1" type="number" (click)="count_items_update(product.productpic,product.productname,product.itemcount)">
+                    </div>
+                    <div class="col-md-1 price_quantity_lap" style="margin-top:4%">
+                        <label >
+                            {{product.productprice}}
+                        </label>
+                    </div>
+                    <div class="col-md-1 col-sm-6 price_quantity_lap" style="margin-top:4%">
+                        <p >
+                            {{product.productprice * product.itemcount}}
+                          </p>
+                    </div>
+                    <div class="col-md-2 col-sm-6 " style="margin-top:4%">
+                        <div class="remove_product_desktop" (click)="removeproduct(product.productpic,product.productname)" >
+                          <i class="fas fa-trash-alt" ></i> <span> Remove</span>
+                        </div>
+                        <div class="remove_product_mobile" (click)="removeproduct(product.productpic,product.productname)" >
+                            <i class="fas fa-trash-alt" ></i> <span> Remove</span>
+                          </div>
+                      </div>
+                </div>
+              </mdb-card>
+            </div>
+            </div>
+                <div class="row">
+                  <div class="col-sm-8"></div>
+                  <div class="col-sm-4 desktop-total" style="margin-left:-5%;margin-top:3%">
+                    <div class="row">
+                    <label class="col-sm">Grand Total</label>
+                    <label class="col-sm">$ {{grand_total}}</label>
+                    <button  mat-button matStepperNext class="col-sm check-out-button" (click)="checkout()">Checkout</button>
+                  </div> 
+                  </div>
+                  <div class="col-sm-4 tab-total" style="margin-left:-5%;margin-top:3%">
+                    <div class="row">
+                    <label class="col-sm">Grand Total</label>
+                    <label class="col-sm">$ {{grand_total}}</label>
+                    </div>
+                    <button  mat-button matStepperNext class="col-sm check-out-button" (click)="checkout()">Checkout</button>
+                   
+                  </div>
+                  <div class="col-sm-4 mobile-total" style="margin-left:17%;margin-top:3%">
+                      <label class="col-sm-2">Grand Total:  $ {{grand_total}}</label>
+                      <button  mat-button matStepperNext class="check-out-button" style="width: 80%" (click)="checkout()">Checkout</button>
+                    
+                    </div>
+                </div>
+          </div>
+        </mat-step>
+        <mat-step  [stepControl]="secondFormGroup">
+            
+            <ng-template matStepLabel>Delivery Address</ng-template>
+            <mdb-card  style="width: 50%;margin-left:25%">
+              
+              <label style="margin-left:5%;margin-top:3%">FirstName *</label>
+              <input  [(ngModel)]="first_name" style="width: 80%;margin-left:5%;border-radius: 12px" type="text" placeholder="Enter First Name" >
+              <p [hidden]="first_name_validation" style="color: red;margin-left: 5%;margin-top: 1%;">please enter the first name</p>
+              <label class="address-label">LastName *</label>
+              <input [(ngModel)]="last_name" class="address-input" type="text" placeholder="Enter Last Name">
+              <p [hidden]="last_name_validation" style="color: red;margin-left: 5%;margin-top: 1%;">please enter the last name</p>
+              <label class="address-label">Email *</label>
+              <input [(ngModel)]="email" class="address-input" type="text" placeholder="Enter Email">
+              <p [hidden]="email_required" style="color: red;margin-left: 5%;margin-top: 1%;">please enter the email</p>
+              <p [hidden]="email_validation" style="color: red;margin-left: 5%;margin-top: 1%;">please enter the valid email</p>
+              <label class="address-label">Address Line1 *</label>
+              <input [(ngModel)]="address_line1" class="address-input" type="text" placeholder="Enter Address Line1">
+              <p [hidden]="address_line1_validation" style="color: red;margin-left: 5%;margin-top: 1%;">please enter the Address Line1</p>
+              <label class="address-label">Address Line2</label>
+              <input [(ngModel)]="address_line2" class="address-input" type="text" placeholder="Enter Address Line2">
+              <label class="address-label">Pincode *</label>
+              <input [(ngModel)]="pincode" class="address-input" type="text" placeholder="Enter Pincode">
+              <p [hidden]="pincode_required" style="color: red;margin-left: 5%;margin-top: 1%;">please enter the Pincode</p>
+              <p [hidden]="pincode_validation" style="color: red;margin-left: 5%;margin-top: 1%;">please enter the valid 6 character Pincode</p>
+              <label class="address-label">Phone Number *</label>
+              <input [(ngModel)]="phone_number" class="address-input" type="text" placeholder="Enter Phone Number">
+              <p [hidden]="phone_number_required" style="color: red;margin-left: 5%;margin-top: 1%;">please enter the phone number</p>
+              <p [hidden]="phone_number_validation" style="color: red;margin-left: 5%;margin-top: 1%;">please enter the valid 10 digit phone number</p>
+              <div class="row" style="margin-left:17%;margin-top:3%;margin-bottom: 3%;width:80%">
+                  <button mat-button  class="col-md-4" style="border-radius: 12px;background-color: #8080ff;color: white;width: 80%;margin-top: 3%" (click)="onAddressSubmit(stepper)">Submit</button>
+                  <button mat-button matStepperPrevious class="col-md-4" style="margin-left:3%;border-radius: 12px;background-color:#8080ff;color: white;width: 80%;margin-top: 3% ">Back</button>
+              </div>
+              
+            </mdb-card>
+        </mat-step>
+        <mat-step  >
+          <ng-template matStepLabel>Confirmation</ng-template>
+          <img  style="height:100%; width :62%;margin-left:20%" class="img-width-height" src="../assets/images/orderconfirmation.png" alt="emptyshoppingcart"/>
+        </mat-step>
+      </mat-horizontal-stepper>
+</div>

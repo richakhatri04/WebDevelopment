@@ -1,0 +1,190 @@
+<!--Developed by Richa Khatri (B00792218) Richa.khatri@dal.ca-->
+
+<div>
+  <!--material bootstrap for angular https://mdbootstrap.com-->
+<mdb-carousel [animation]="'slide'" class="black">
+  <!--Banner image-->
+  <mdb-carousel-item><!--Replaced h-50 w-100 with carousel-fit-img-->
+    <img class="d-block carousel-fit-img" src="https://www.catcafestudio.com/wp-content/uploads/2018/09/IMG_0266.jpg" alt="Cat">
+  <div class="carousel-caption">
+    <h3 class="h3-responsive" style="color: black;">Don't buy, Adopt them!</h3>
+    <a mdbBtn color="light" mdbWavesEffect>Learn more</a>
+  </div>
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img class="d-block carousel-fit-img" src="https://www.catcafestudio.com/wp-content/uploads/2018/08/IMG_7728.jpg" alt="Second slide">
+    <div class="carousel-caption">
+      <h3 class="h3-responsive">Help them grow better</h3>
+      <a mdbBtn color="light" mdbWavesEffect>Donate</a>
+    </div>
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img class="d-block carousel-fit-img" src="http://www.thefelinefoundation.com/wp-content/uploads/2018/09/front-slider-2-min.jpg" alt="Third slide">
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img class="d-block carousel-fit-img" src="http://kitty-whisperer.com/cat-cute-wallpaper/baby-cute-cat-wallpaper/" alt="Fourth slide">
+  </mdb-carousel-item>
+</mdb-carousel>
+<!--End of banner image-->
+<div class="container home_container">
+  <br>
+  <!-- <form class="searchbutton">
+	<input id="search" type="text" placeholder="Search by breed">
+  <button type= ""submit><i class="fas fa-search" aria-hidden="true"></i></button>
+</form> -->
+<div class="row">
+<div class="col-md-6 col-xs-8 mt-25"> <h4><strong> Pets for Adoption </strong></h4></div>
+  <div class="col-md-6 col-xs-8">
+  <form class="form-inline md-form form-sm pull-right">
+    <i class="fas fa-search" aria-hidden="true"></i>
+    <input type="submit" class="form-control form-control-sm ml-3 w-30" type="text" placeholder="Search by breed" aria-label="Search"
+      mdbInput>
+  </form>
+</div>
+</div> 
+<!-- <form class="form-inline md-form form-sm">
+  <i class="fas fa-search" aria-hidden="true"></i>
+  <input type="submit" class="form-control form-control-sm ml-3 w-30" type="text" placeholder="Search by breed" aria-label="Search"
+    mdbInput>
+</form> -->
+
+<!--Row two begins-->
+<!-- <br> <h4><strong>Featured Cat Breeds</strong></h4> -->
+    <div id= "root" class="row">
+      <div class="col-sm">
+      <mat-card class="card" narrower= "true">
+  <mat-card-header>
+    <!-- <div mat-card-avatar class="example-header-image"></div> -->
+  <div class="row">
+    <mat-card-title class="zero-margin">Russian Blue / </mat-card-title>
+    <mat-card-subtitle class="zero-margin">Cat Breed</mat-card-subtitle>
+  </div>
+  </mat-card-header>
+  <img mat-card-image src="assets\images\cat3.jpg" class="petAdoption-image" alt="Photo of a Cat">
+  <mat-card-content>
+    <p style="color: black">
+     Age: 33
+      <br> Colour: Black and White <br> Qualities:The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+      bred for hunting <a routerLink="/rescue">Read more..</a>
+    </p>
+  </mat-card-content>
+</mat-card>
+</div>
+
+
+<div class="col-sm">
+  <mat-card class="card" narrower= "true">
+<mat-card-header >
+<!-- <div mat-card-avatar class="example-header-image"></div> -->
+<div class="row">
+<mat-card-title class="zero-margin">Siberian Husky / </mat-card-title>
+<mat-card-subtitle class="zero-margin">Dog Breed</mat-card-subtitle>
+</div>
+</mat-card-header>
+<img mat-card-image src="assets\images\PetAdoptionimages\rescuedog2.jpg" class="petAdoption-image"  alt="Photo of a Husky">
+<mat-card-content>
+<p style="color: black">
+  Age: 33
+  <br> Colour: Black and White <br> Qualities:The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+  A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+  bred for hunting <a routerLink="/rescue">Read more..</a>
+</p>
+</mat-card-content>
+</mat-card>
+</div>
+
+<div class="col-sm">
+      <mat-card class="card" narrower= "true">
+  <mat-card-header>
+    <!-- <div mat-card-avatar class="example-header-image"></div> -->
+    <div class="row">
+    <mat-card-title class="zero-margin">Russian Blue / </mat-card-title>
+    <mat-card-subtitle class="zero-margin">Cat Breed</mat-card-subtitle>
+  </div>
+  </mat-card-header>
+  <!-- <img mat-card-image src="https://upload.wikimedia.org/wikipedia/en/thumb/8/83/Young_Male_CFA_Kitten_-_Age_2_Months.jpg/255px-Young_Male_CFA_Kitten_-_Age_2_Months.jpg" alt="Photo of a Cat"> -->
+  <img mat-card-image src="assets\images\cat2.jpg" class="petAdoption-image" alt="Photo of a Dog">
+  <mat-card-content>
+    <p style="color: black">
+      Age: 33
+      <br> Colour: Black and White <br> Qualities:The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+      bred for hunting <a routerLink="/rescue">Read more..</a>
+    </p>
+  </mat-card-content>
+</mat-card>
+</div>
+</div>
+<a mdbBtn color="primary" mdbWavesEffect routerLink="/event-list" class="mt-left-450">View more</a>
+<!-- <div class="row" class="align-right">
+  <div class="col-md-6 col-xs-8 mt-25"> <h3><strong> Our Pillars </strong></h3></div>
+</div> -->
+<div class="row">
+  <div class="col-md-6 col-xs-8 mt-25"> <h4><strong> Our Pillars </strong></h4></div>
+  <div class="col-md-6 col-xs-8 mt-25"></div>
+  </div> 
+<div class="row">
+  <div class="mat-card col-sm mt-right-40">
+    <img class="mat-card-image" src="assets\images\Homepage_Thumbnails\Why_Adopt.png" alt="Card image cap">
+    <div class="mat-card-content">
+      <h5 class="mat-card-title">Why Adopt a pet?</h5>
+      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <a href="#" class="mat-card-actions">Read More</a>
+    </div>
+  </div>
+  <div class="mat-card col-sm mt-right-40">
+    <img class="mat-card-image" src="assets\images\Homepage_Thumbnails\Our_Mission_SS.png" alt="Card image cap">
+    <div class="mat-card-content">
+      <h5 class="mat-card-title">Our Mission</h5>
+      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <a href="#" class="mat-card-actions">Read More</a>
+    </div>
+  </div>
+  <div class="mat-card col-sm mt-right-40">
+    <img class="mat-card-image" src="assets\images\Homepage_Thumbnails\Why_SS.png" alt="Card image cap">
+    <div class="mat-card-content">
+      <h5 class="mat-card-title">Why Stray Spirit?</h5>
+      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <a href="#" class="mat-card-actions">Read More</a>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="row" class="align-right">
+<div class="col-md-6 col-xs-8 mt-25"> <h3><strong> Our Pet Stories </strong></h3></div>
+</div> -->
+<div class="row">
+  <div class="col-md-6 col-xs-8 mt-25"> <h4><strong> Our Pet Stories </strong></h4></div>
+  </div> 
+<div class="row">
+  <div class="mat-card col-sm mt-right-40">
+    <img class="mat-card-image" src="assets\images\PetStories\Story_1.jpg" alt="Card image cap">
+    <div class="mat-card-content">
+      <!-- <div class="row"> -->
+      <div class="mat-card-content">The Good life of Cileo</div>
+    </div>
+  </div>
+
+
+  <div class="mat-card col-sm mt-right-40">
+    <img class="mat-card-image" src="assets\images\PetStories\Story_2.jpg" alt="Card image cap">
+    <div class="mat-card-content">
+      <!-- <div class="row"> -->
+      <div class="mat-card-content">The Good life of Cileo</div>
+    </div>
+  </div>
+
+
+  <div class="mat-card col-sm mt-right-40">
+    <img class="mat-card-image" src="assets\images\PetStories\Story_3.jpg" alt="Card image cap">
+    <div class="mat-card-content">
+      <!-- <div class="row"> -->
+      <div class="mat-card-content">The Good life of Cileo</div>
+    </div>
+  </div>
+</div>
+<a mdbBtn color="primary" mdbWavesEffect routerLink="/event-list" class="mt-left-450">View more</a>
+<br/>
+</div>
+</div>

@@ -1,0 +1,54 @@
+<!-- Authored by Shehzeen[B00812551]-->
+<!--material bootstrap for angular https://mdbootstrap.com-->
+<!-- Material design components are from https://material.angular.io/-->
+<!DOCTYPE html>
+<head></head>
+<div class="jumbotron-fluid jumbotron mt-85">
+      <mat-drawer-container class="main-container">
+         <mat-drawer-content>
+            <div class="container">
+            <section class="mat-typography">
+                <h2 class="text-center mt-25">Update Order Status</h2>
+             </section>
+             <mat-divider></mat-divider>
+                   
+              
+               <br>
+               <div class = "row">
+                  <div class="col-md-9">
+                    
+                      
+                           <form class="updateForm" [formGroup]="updateForm" (submit)="ondonateOneTime()" name="updateForm">
+                         
+                           <div class="fields-container">
+                              <div>
+                                  <b>Order Status :</b>
+                                </div>
+                              <mat-form-field>
+                                 <mat-label>Order Status*</mat-label>
+                                 <mat-select  type="orderStatusField" (selectionChange)="selected($event)" placeholder="UpdateOrder*" formControlName="orderStatusField">
+                                    <mat-option>None</mat-option>
+                                    <mat-option value="Shipped">Shipped</mat-option>
+                                    <mat-option value="Delivered">Delivered</mat-option>
+                                    <mat-option value="Recieved">Recieved</mat-option>
+                                    <mat-option value="Pending">Pending</mat-option>
+                                 </mat-select>
+                                <mat-error *ngIf="f.orderStatusField.errors?.required">Order Status required</mat-error>
+                              </mat-form-field>
+                           </div>
+                           <br>
+                           <!--The image used in the below input is taken from https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif-->
+                          
+                           <button type="submit" class="button" [attr.disabled]="updateForm.valid ? false : true " mat-flat-button color="primary"
+                           [disabled]="updateForm.valid ? false : true ">Update</button>
+                      
+                              </form>
+                      
+                      
+                   
+                  </div>
+               </div>
+            </div>
+         </mat-drawer-content>
+      </mat-drawer-container>
+   </div>

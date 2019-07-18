@@ -1,0 +1,94 @@
+<!-- Authored by Shehzeen [B00812551]-->
+<!-- Modified by Lakshmi Ponnuru [B00811623]-->
+
+<!--material bootstrap for angular https://mdbootstrap.com-->
+<!-- Material design components are from https://material.angular.io/-->
+<!DOCTYPE html>
+
+<head></head>
+<div class="jumbotron-fluid jumbotron mt-85">
+  <mat-drawer-container class="main-container">
+    <mat-drawer-content>
+      <div class="container">
+        <section class="mat-typography">
+          <h2 class="text-center mt-25">DONATE TO ORAGNIZATION</h2>
+        </section>
+        <mat-divider></mat-divider>
+        <br>
+        <div class="row">
+          <div class="col-md-3">
+            <br>
+            <mat-card>
+              <!--https://irp-cdn.multiscreensite.com/a1067652/dms3rep/multi/mobile/Thank+You.jpg-->
+              <img
+                src="https://irp-cdn.multiscreensite.com/a1067652/dms3rep/multi/mobile/Thank+You.jpg"
+                class="image-donate" alt="donate" style="width:100%; display:block;">
+              <hr>
+              <p class="thankyou-para">STRAY-SPIRIT thanks you for your kind donation!! Your caring support will make
+                a great difference in the lives of thousands animals as loving pets.</p>
+            </mat-card>
+          </div>
+          <div class="col-md-9">
+            <mat-tab-group>
+                <mat-tab label="DONATION">
+                <form [formGroup]="donateForm" name="donateForm" class="donateForm"
+                  (ngSubmit)="onDonation()">
+                  <div class="fields-container">
+                    <mat-form-field>
+                      <input matInput placeholder="First Name*" class="form-control" name="donorFirstName"
+                        formControlName="donorFirstName">
+                      <mat-error *ngIf="fr.donorFirstName.errors?.required">First Name is Required</mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="fields-container">
+                    <mat-form-field>
+                      <input matInput placeholder="Last Name*" class="form-control" name="donorLastName"
+                        formControlName="donorLastName">
+                      <mat-error *ngIf="fr.donorLastName.errors?.required">Last Name is Required</mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="fields-container">
+                      <mat-form-field>
+                        <input matInput placeholder="Email ID*" class="form-control" name="emailID"
+                          formControlName="emailID">
+                        <mat-error *ngIf="fr.emailID.errors?.required">Email ID is Required</mat-error>
+                        <mat-error *ngIf="fr.emailID.errors?.email || fr.emailID.errors?.pattern">Email ID should be in abcd@abc.abc or abc.abcd@abc.anc</mat-error>
+                      </mat-form-field>
+                    </div>
+
+                  <div class="fields-container">
+                    <mat-form-field>
+                      <input matInput type="number" placeholder="Amount*" class="form-control"
+                        name="amount" formControlName="amount">
+                      <mat-error *ngIf="fr.amount.errors?.required">Amount is required</mat-error>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="fields-container">
+                    <mat-form-field>
+                      <mat-label>Select Frequency*</mat-label>
+                      <mat-select type="frequency" placeholder="Frequency*" name="frequency"
+                        formControlName="frequency">
+                        <mat-option>None</mat-option>
+                        <mat-option value="one-Time">One-Time</mat-option>
+                        <mat-option value="Monthly">Monthly</mat-option>
+                        <mat-option value="Quaterly">Quarterly</mat-option>
+                        <mat-option value="Yearly">Yearly</mat-option>
+
+                      </mat-select>
+                      <mat-error *ngIf="fr.frequency.errors?.required">Frequency of subscription is required
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <br>
+                  <button type="submit" style="margin-bottom: 5%;" color="indigo" mat-raised-button class="donate_button" (click)=toggle() routerLinkActive="router-link-active">Donate Now</button>
+
+                </form>
+              </mat-tab>
+            </mat-tab-group>
+          </div>
+        </div>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>

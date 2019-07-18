@@ -1,0 +1,49 @@
+<!--Authored by Aparna Sridhar [B00799570]-->
+<div class="container mt-85" >
+
+  <form method="POST" name="addEventsForm" [formGroup]="addEventsForm"   enctype="multipart/form-data" (submit)= "addEvent()">
+    <div class="md-form">
+      <input mdbInputDirective type="name" id="eventName" class="form-control" name="eventName" formControlName="eventName" [ngClass]="{'is-invalid':addEventsForm.get('eventName').touched && addEventsForm.get('eventName').invalid}">
+      <label for="eventName" class="">Event Name*</label>
+      <div *ngIf="addEventsForm.get('eventName').touched && addEventsForm.get('eventName').invalid" class="invalid-feedback">
+        <div *ngIf="addEventsForm.get('eventName').errors.required">Event Name is required</div>
+        <div *ngIf="addEventsForm.get('eventName').errors.pattern">Only Characters are allowed!</div>
+      </div>
+    </div>
+    
+    <div class="md-form">
+      <i class="fas fa-pencil-alt prefix"></i>
+      <textarea type="text" id="eventDescription" class="md-textarea form-control" mdbInputDirective formControlName="eventDescription" [ngClass]="{'is-invalid':addEventsForm.get('eventDescription').touched && addEventsForm.get('eventDescription').invalid}" ></textarea>
+      <label for="eventDescription">Event Description*</label>
+      <div *ngIf="addEventsForm.get('eventDescription').touched && addEventsForm.get('eventDescription').invalid" class="invalid-feedback">
+        <div *ngIf="addEventsForm.get('eventDescription').errors.required">Event Description is required</div>
+      </div>
+    </div>
+        <div class="md-form">
+            <input mdbInputDirective type="name" id="location" class="form-control" name="location" formControlName="location"
+              >
+            <label for="location" class="">Enter the event location*</label>
+            
+            
+          </div>
+          <p>Enter the Event Date </p>
+          <div class="md-form">
+            <input  type="date" class="form-control" name="eventDate" formControlName="eventDate"
+            >
+          </div>      
+          
+          <div class="md-form">
+            <input mdbInputDirective type="name" id="pincode" class="form-control" name="pincode" formControlName="pincode"
+            [ngClass]="{'is-invalid':addEventsForm.get('pincode').touched && addEventsForm.get('pincode').invalid}">
+            <label for="pincode" class="">Pincode*</label>
+            <div *ngIf="addEventsForm.get('pincode').touched && addEventsForm.get('pincode').invalid"class="invalid-feedback">
+              <div *ngIf="addEventsForm.get('pincode').errors.required">Pincode is required</div>
+              <div *ngIf="addEventsForm.get('pincode').errors.pattern">Invalid pincode</div>
+            </div> 
+          </div>
+          <div class="md-form">
+            <input name="imageUrl" type="file" accept="image/*" (change)="handleInputChange($event)" />
+          </div>
+  <button (click) = "addToast()" mdbBtn type="submit" color="indigo" mdbWavesEffect class="sign-in_button"  >Add</button>
+   </form>
+</div>

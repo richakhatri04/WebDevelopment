@@ -1,0 +1,135 @@
+
+<div class="jumbotron-fluid jumbotron">
+  <div class="mt-25">
+  <div class="container">
+      <h2 class="text-center">Edit Inventory</h2>
+
+      <form method="POST" name="editInventoryForm" [formGroup]="editInventoryForm" (submit)="editInventory()"  enctype="multipart/form-data">
+        <div class="md-form">
+          <input mdbInputDirective type="name" id="productName" class="form-control" name="productName" formControlName="productName"
+            [ngClass]="{'is-invalid':editInventoryForm.get('productName').touched && editInventoryForm.get('productName').invalid}">
+          <label for="productName" class="">Product Name</label>
+          <div *ngIf="editInventoryForm.get('productName').touched && editInventoryForm.get('productName').invalid" class="invalid-feedback">
+            <div *ngIf="editInventoryForm.get('productName').errors.required">Product Name is required</div>
+          </div>
+        </div>
+
+
+          <!-- <div class = "noproduct" *ngIf="!productFind">No products added by you!</div>
+          <div class="row mt-25 row_head" *ngIf="productFind" >
+            <div class="col-md-2">
+              Image
+            </div>
+            <div class="col-md-4">
+              Product Name
+            </div>
+            <div class="col-md-1">
+              Price
+            </div>
+            <div class="col-md-1">
+              Qty
+            </div>
+            <div class="col-md-4 text-center">
+              Action
+            </div>
+          </div> -->
+          <!-- <mdb-card *ngFor="let p of product_newData">
+            <div class="row text-center">
+              <div class="col-md-2 col-sm-4">
+                <div class="inventory_image">
+                  <img [src]="p.productPic" class="img-fluid">
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-8 inventory_product_name_wrapper">
+                <p class="inventory_product_name">{{p.productName}}</p>
+                <div class="mobile_price_qty">
+                  <span class="mobile_price"><i class="fas fa-dollar-sign"></i>{{p.productPrice}}</span>
+                  <span class="mobile_qty"><i class="fas fa-sort-amount-up"></i>{{p.productQuantity}}</span>
+                </div>
+              </div>
+              <div class="col-md-1 desktop_price_qty">
+                <p class="inventory_product_price">
+                  ${{p.productPrice}}
+                </p>
+              </div>
+              <div class="col-md-1 desktop_price_qty">
+                <p class="inventory_product_qty">
+                  {{p.productQuantity}}
+                </p>
+              </div>
+              <div class="col-md-2 col-sm-6">
+                <div class="edit_button">
+                  <i class="fas fa-pencil-alt" ></i> <span (click)="edit()">Edit</span>
+                </div>
+              </div>
+              <div class="col-md-2 col-sm-6">
+                <div class="delete_button" (click)="deleteProduct(p._id)">
+                  <i class="fas fa-trash-alt" ></i> <span>Delete</span>
+                </div>
+              </div>
+            </div>
+          </mdb-card>
+        </div>
+      </mat-tab>
+      <mat-tab label="Add Product">
+        <div class="container inventory_content">
+          <h2 class="text-center mt-25">Add Products for Selling</h2>
+          <form method="POST" name="addProductForm" [formGroup]="addProductForm" (submit)="addProduct()"  enctype="multipart/form-data">
+            <div class="md-form">
+              <input mdbInputDirective type="name" id="productName" class="form-control" name="productName" formControlName="productName"
+                [ngClass]="{'is-invalid':addProductForm.get('productName').touched && addProductForm.get('productName').invalid}">
+              <label for="productName" class="">Product Name</label>
+              <div *ngIf="addProductForm.get('productName').touched && addProductForm.get('productName').invalid" class="invalid-feedback">
+                <div *ngIf="addProductForm.get('productName').errors.required">Product Name is required</div>
+              </div>
+            </div> -->
+            <div class="md-form"> 
+              <input mdbInputDirective type="number" id="productPrice" class="form-control" name="productPrice" formControlName="productPrice"
+                [ngClass]="{'is-invalid':editInventoryForm.get('productPrice').touched && editInventoryForm.get('productPrice').invalid}">
+              <label for="productPrice" class="">Product Price (in $)</label>
+              <div *ngIf="editInventoryForm.get('productPrice').touched && editInventoryForm.get('productPrice').invalid" class="invalid-feedback">
+                <div *ngIf="editInventoryForm.get('productPrice').errors.required">Product Price is required</div>
+                <div *ngIf="editInventoryForm.get('productPrice').errors.pattern">Only Numeric value allowed</div>
+              </div>
+            </div>
+
+            <div class="md-form">
+                <input mdbInputDirective type="number" id="productQuantity" class="form-control" name="productQuantity" formControlName="productQuantity"
+                  [ngClass]="{'is-invalid':editInventoryForm.get('productQuantity').touched && editInventoryForm.get('productQuantity').invalid}">
+                <label for="productQuantity" class="">Product Quantity</label>
+                <div *ngIf="editInventoryForm.get('productQuantity').touched && editInventoryForm.get('productQuantity').invalid" class="invalid-feedback">
+                  <div *ngIf="editInventoryForm.get('productQuantity').errors.required">Product Quantity is required</div>
+                  <div *ngIf="editInventoryForm.get('productQuantity').errors.pattern">Only Numeric value allowed</div>
+                </div>
+              </div>
+              <div class="md-form">
+                <mat-select placeholder="Product Category" formControlName="productCategory">
+                    <mat-option value="Food">
+                      Food
+                    </mat-option>
+                    <mat-option value="Clothing">
+                      Clothing
+                    </mat-option>
+                    <mat-option value="Pet Toys">
+                      Pet Toys
+                    </mat-option>
+                  </mat-select>
+                  </div>
+              <input type="file" name="productImage" required class="product_image_upload" (change)="handleInputChange($event)" >
+              <div class="md-form">
+                  <i class="fas fa-pencil-alt prefix"></i>
+                  <textarea type="text" id="productDescription" formControlName="productDescription" class="md-textarea form-control" mdbInputDirective></textarea>
+                  <label for="productDescription">Product Description</label>
+                </div>
+          <!-- <button mdbBtn type="submit" color="indigo" mdbWavesEffect class="sign-in_button" >Update</button> -->
+          <button mdbBtn type="submit" color="indigo" mdbWavesEffect class="sign-in_button" [disabled]="!editInventoryForm.valid" >Update</button>
+       </form>
+       <a routerLink="/profile/my-inventory">
+        <button mdbBtn type="button" color="orange" mdbWavesEffect class="sign-in_button" >Cancel</button>
+      </a>
+           
+        </div>
+      <!-- </mat-tab>
+    </mat-tab-group> -->
+  </div>
+</div>

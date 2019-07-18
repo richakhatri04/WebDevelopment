@@ -1,0 +1,78 @@
+<!-- Developed by Aadesh Shah B00802629 -->
+<div class="bg">
+<div class="container mt-85">
+  <div class="pet_container mt-25">
+      <mat-spinner *ngIf="isLoading"></mat-spinner>
+    <div class="" *ngIf="!isLoading">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="pet_profile_pic">
+            <img src="{{petDetails?.petPic}}" [alt]="petDetails?.petName" class="img-fluid">
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="pet_content">
+        <h2 class="pet_name">{{petDetails?.petName}}</h2>
+        <div class="mt-25 sep"></div>
+        <div class="mt-25 pet_specifications">
+          <p class="pet_location"><i class="fas fa-map-marker-alt"></i> {{petDetails?.petLocation.petCity}}, {{petDetails?.petLocation.petState}}, {{petDetails?.petLocation.petCountry}}</p>
+          <p class="pet_detailed_specs">{{petDetails?.petAge}} &nbsp;<i class="fas fa-genderless"></i>&nbsp; {{petDetails?.petGender}} &nbsp;<i class="fas fa-genderless"></i>&nbsp; {{petDetails?.petCategory}}</p>
+          <p class="pet_health"><i class="fas fa-syringe"></i> {{petDetails?.petHealth}}</p>
+        </div>
+        <div class="mt-25">
+          <p class="pet_uploader">Rescued by: {{petDetails?.petUploader.firstName}} {{petDetails?.petUploader.lastName}}</p>
+          <!-- <a routerLink="/adopt/{{profile_id}}" target="_blank"> -->
+            <button mdbBtn color="primary" class="waves-light toggle_button" type="button" mdbWavesEffect (click)="adopt()" *ngIf = "isUserLoggedin">Adopt Me!</button>
+          <!-- </a> -->
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="pet_description">
+      <p> {{petDetails?.petDescription}}
+      </p>
+    </div>
+  </div>
+  <div class="more_pets_container">
+    <h3 class="text-center">More Pets available near You</h3>
+    <mat-spinner *ngIf="isPetsLoading"></mat-spinner>
+    <div class="container" *ngIf="!isPetsLoading">
+    <div class="row">
+    <div class="col-lg-3 col-sm-4" *ngFor="let pet_new of pet_newData ; let i=index">
+        <div class="pet-lists" *ngIf="i<4">
+          <a href="/pet-profile/{{pet_new._id}}">
+          <mdb-card>
+            <div class="pets_card">
+              <!--Card image-->
+              <div class="card_img_wrapper">
+              <img [src]="pet_new.petPic" alt="{{pet_new.petName}}" class="img-fluid">
+              </div>
+              <!--Card content-->
+              <mdb-card-body>
+                <!--Title-->
+                <mdb-card-title>
+                  <h4>
+                      <span>{{pet_new.petName}}</span>
+                  </h4>
+                </mdb-card-title>
+              </mdb-card-body>
+              <div class="pet_card_overlay">
+                  <div class="pet_card_overlay_image">
+                      <img [src]="pet_new.petPic" alt="{{pet_new.petName}}" class="img-fluid">
+                  </div>
+                  <div class="pet_card_overlay_detail">
+                    <h4>{{pet_new.petName}}</h4>
+                    <p>{{pet_new.petAge}} | {{pet_new.petGender}}</p>
+                  </div>
+                </div>
+              </div>
+            </mdb-card>
+            </a>
+            </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,71 @@
+//* Developer - Dheeraj Varshney B00808467 dh301823@dal.ca */
+.header1
+{
+    text-align:center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:60px;
+    margin-top: 40px;
+}
+ 
+
+* {
+    box-sizing: border-box;
+  }
+.col-lg-7
+{
+    margin-top: 30px;
+}
+.img-fluid
+{
+    max-width: auto;
+    width: 100%;
+}
+.imgeffect {
+  font-size: 20px;
+  padding: 20px;
+  position: absolute; 
+  opacity:0;
+  transition: .5s ease;
+  bottom: 18px;
+  left: 15px;
+  right:15px;
+  color: white;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.container-fluid :hover .imgeffect
+ {
+  opacity: 1;
+}
+
+
+.boldtext
+{
+    font-weight:bold;
+}
+
+ 
+#dog2,#dog1
+{
+   margin-bottom: 20px;
+  
+    
+}
+
+// media query for responsiveness
+
+@media (max-width: 714px)
+{
+    .header1
+    {
+        font-size: 20px;
+    }
+}
+@media (min-width: 715px) and (max-width: 1050px)
+{
+    .header1
+    {
+        font-size: 40px;
+    }
+}

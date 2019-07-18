@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="jumbotron jumbotron-fluid">
+    <h2 class="text-center">Adoption Requests for Saber</h2>
+    <hr>
+    <div class="table-responsive">
+      <table class="table" mdbTable>
+        <thead>
+          <tr>
+            <th scope="col">
+              #
+            </th>
+            <th scope="col">
+              Adopter Name
+            </th>
+            <th scope="col">
+              View Request
+            </th>
+            <th scope="col">
+              Action
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let adoptData of petAdoptDetail; let i=index">
+            <th scope="row">
+              {{i+1}}
+            </th>
+            <td>
+              {{adoptData.petAdopter.firstName}}
+              
+            <div #content class="pdf_content">
+                <h3 style="margin-bottom:25px;font-size: 35px;text-decoration: underline"> Adoption Request for {{adoptData.petDetail.petName}}</h3>
+                <hr style="margin:5px 0;border-top:1px solid;">
+                <p style="margin:10px 0"><span style="font-weight:bold">Adoption Id:</span> {{adoptData._id}}</p>
+                <p style="margin:10px 0"><span style="font-weight:bold">Pet Name:</span> {{adoptData.petDetail.petName}}</p>
+                <p style="margin:10px 0"><span style="font-weight:bold">Request Date:</span> {{adoptData.creationDate}}</p>
+  
+                <hr style="margin:5px 0;border-top:1px solid;">
+                <h4 style="margin:25px 0;font-size: 25px;text-decoration: underline">Adopter Details</h4>
+                <hr style="margin:5px 0;border-top:1px solid;">
+                <p style="margin:10px 0"><span style="font-weight:bold">First Name:</span> {{adoptData.petAdopter.firstName}}</p>
+                <p style="margin:10px 0"><span style="font-weight:bold">Last Name:</span> {{adoptData.petAdopter.lastName}}</p>
+                <p style="margin:10px 0"><span style="font-weight:bold">Email:</span> {{adoptData.petAdopter.adopterEmail}}</p>
+                <p style="margin:10px 0"><span style="font-weight:bold">Phone Number:</span> {{adoptData.petAdopter.adopterPhone}}</p>
+                <p style="margin:10px 0"><span style="font-weight:bold">Address:</span> {{adoptData.petAdopter.adopterAddress}}</p>
+                <hr style="margin:5px 0;border-top:1px solid;">
+                <h4 style="margin:25px 0;font-size: 25px;text-decoration: underline">Adoption form Answers</h4>
+                <hr style="margin:5px 0;border-top:1px solid;">
+                <p style="margin:10px 0"><span style="font-weight:bold">Is this your first pet?:</span><br>{{adoptData.firstPet}}</p>
+              
+                <p style="margin:10px 0"><span style="font-weight:bold">Do you currently have any other pets?:</span><br>{{adoptData.curPet}}</p>
+              
+                <p style="margin:10px 0"><span style="font-weight:bold">What pets have you previously owned?</span><br>{{adoptData.prevPet}}</p>
+              
+                <p style="margin:10px 0"><span style="font-weight:bold;text-transform: capitalize">Tell us about what you are looking for in a new pet family member (age, sex, activity level, personality).</span><br>{{adoptData.adopterPetFamily}}</p>
+              
+                <p style="margin:10px 0"><span style="font-weight:bold;text-transform: capitalize">Does Your Job require you to move or travel often?</span><br>{{adoptData.travel}}</p>
+              
+                <p style="margin:10px 0"><span style="font-weight:bold;text-transform: capitalize">Are You willing to take responsibility for your pet's entire life, keeping up to date with yearly <br>vaccinations and tests?</span><br>{{adoptData.vacci}}</p>
+              
+                <p style="margin:10px 0"><span style="font-weight:bold;text-transform: capitalize">Is there a cat/dog behavior that would not be acceptable to you?</span><br>{{adoptData.petBehaviour}}</p>
+              
+                <p style="margin:10px 0"><span style="font-weight:bold;text-transform: capitalize">If this pet does not work out in your home, what will you do?</span><br>{{adoptData.petHome}}</p>
+              </div>
+            </td>
+            <td>
+                <button type="button" mdbBtn color="indigo" mdbWavesEffect (click)="downloadPDF()"><i class="fas fa-file-download fa-lg	"></i></button>
+            </td>
+            <td>
+              
+                <button type="button" mdbBtn color="green" mdbWavesEffect (click)="editAdopt('Accepted',adoptData._id,adoptData.petAdopter.userId)"><i class="fas fa-check fa-lg"></i></button>
+                <button type="button" mdbBtn color="danger" mdbWavesEffect (click)="editAdopt('Rejected',adoptData._id,adoptData.petAdopter.userId)"><i class="fas fa-times fa-lg"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div>

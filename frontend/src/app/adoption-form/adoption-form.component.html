@@ -1,0 +1,146 @@
+<div class="mt-85">
+  <div class="container">
+    <div class="jumbotron">
+      <div class="mt-25">
+      <h2 class="text-center">Adopt {{currentPetData?.petName}}</h2>
+    </div>
+    <div class="mt-25">
+            <mat-horizontal-stepper  linear>
+              <mat-step  [stepControl]="firstFormGroup">
+                <h3 class="text-center">Personal Details</h3>
+                <form [formGroup]="firstFormGroup" >
+                  <div class="md-form">
+                      <input mdbInputDirective type="name" id="adopterFirstName" class="form-control" name="adopterFirstName" formControlName="adopterFirstName"
+                        >
+                      <label for="adopterFirstName" class="">Your First Name</label>
+                    </div>
+                    <div class="md-form">
+                        <input mdbInputDirective type="name" id="adopterLastName" class="form-control" name="adopterLastName" formControlName="adopterLastName"
+                          >
+                        <label for="adopterLastName" class="">Your Last Name</label>
+                      </div>
+                      
+                  <div class="md-form">
+                      <input mdbInputDirective type="number" id="adopterAge" class="form-control" name="adopterAge" formControlName="adopterAge"
+                        >
+                      <label for="adopterAge" class="">Your Age</label>
+                    </div>
+                    <div class="md-form">
+                        <input mdbInputDirective type="name" id="adopterAddress" class="form-control" name="adopterAddress" formControlName="adopterAddress"
+                          >
+                        <label for="adopterAddress" class="">Your Address</label>
+                      </div>
+                      <div class="md-form">
+                          <input mdbInputDirective type="name" id="adopterEmail" class="form-control" name="adopterEmail" formControlName="adopterEmail"
+                            >
+                          <label for="adopterEmail" class="">Your Email Address</label>
+                        </div>
+                        <div class="md-form">
+                            <input mdbInputDirective type="name" id="adopterPhone" class="form-control" name="adopterPhone" formControlName="adopterPhone"
+                              >
+                            <label for="adopterPhone" class="">Contact Number</label>
+                          </div>
+                <div>
+                    <button type="button" mdbBtn color="light" mdbWavesEffect matStepperNext>Next</button>
+                </div>
+                </form>
+              </mat-step>
+              <mat-step  [stepControl]="secondFormGroup">
+                  <h3 class="text-center">Human-Pet Background</h3>
+                  <form [formGroup]="secondFormGroup" >
+                  <p class="question">Is this your first pet?</p>
+                  <div class="">
+                      <div class="custom-control custom-radio">
+                          <input type="radio" class="custom-control-input" id="firstPetYes" name="firstPet" mdbInput  formControlName="firstPet" value="Yes">
+                          <label class="custom-control-label" for="firstPetYes">Yes</label>
+                         
+                        </div>
+                        <div class="custom-control custom-radio">
+                          
+                            <input type="radio" class="custom-control-input" id="firstPetNo" name="firstPet" mdbInput  formControlName="firstPet" value="No">
+                            <label class="custom-control-label" for="firstPetNo">No</label>
+                          
+                        </div>
+                    </div>
+                    <p class="question">Do you currently have any other pets?</p>
+                    <div class="">
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="curPetsYes" name="curPet" mdbInput formControlName="curPet" value="Yes">
+                            <label class="custom-control-label" for="curPetsYes">Yes</label>
+                           
+                          </div>
+                          <div class="custom-control custom-radio">
+                            
+                              <input type="radio" class="custom-control-input" id="curPetsNo" name="curPet" mdbInput formControlName="curPet" value="No">
+                              <label class="custom-control-label" for="curPetsNo">No</label>
+                            
+                          </div>
+                      </div>
+                      <div class="md-form">
+                          <textarea type="text" id="prevPet" class="md-textarea form-control" mdbInputDirective formControlName="prevPet" ></textarea>
+                    <label for="prevPet">What pets have you previously owned?</label>
+                  </div>
+                    <div class="md-form">
+                        <textarea type="text" id="adopterPetFamily" class="md-textarea form-control" mdbInputDirective formControlName="adopterPetFamily" ></textarea>
+                  <label for="adopterPetFamily">TELL US ABOUT WHAT YOU ARE LOOKING FOR IN A NEW PET FAMILY MEMBER (AGE, SEX, ACTIVITY LEVEL, PERSONALITY).</label>
+                </div>
+                <div>
+                  <button type="button" mdbBtn color="light" mdbWavesEffect matStepperPrevious type="button">Back</button>
+                  
+                      <button type="button" mdbBtn color="light" mdbWavesEffect matStepperNext>Next</button>
+                  
+                </div>
+                </form>
+              </mat-step>
+              <mat-step [stepControl]="thirdFormGroup">
+                  <h3 class="text-center">About your Livelihood</h3>
+                  <form [formGroup]="thirdFormGroup" (submit)="adoptPet()" method="POST">
+                  <p class="question">Does Your Job require you to move or travel often?</p>
+                  <div class="">
+                      <div class="custom-control custom-radio">
+                          <input type="radio" class="custom-control-input" id="travelYes" name="travel" mdbInput formControlName="travel" value="Yes">
+                          <label class="custom-control-label" for="travelYes">Yes</label>
+                         
+                        </div>
+                        <div class="custom-control custom-radio">
+                          
+                            <input type="radio" class="custom-control-input" id="travelNo" name="travel" mdbInput formControlName="travel" value="No">
+                            <label class="custom-control-label" for="travelNo">No</label>
+                          
+                        </div>
+                    </div>
+                    <p class="question">Are You willing to take responsibility for your pet's entire life, keeping up to date with yearly vaccinations and tests?</p>
+                    <div class="">
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="vacciYes" name="vacci" mdbInput formControlName="vacci" value="Yes" >
+                            <label class="custom-control-label" for="vacciYes">Yes</label>
+                           
+                          </div>
+                          <div class="custom-control custom-radio">
+                            
+                              <input type="radio" class="custom-control-input" id="vacciNo" name="vacci" mdbInput formControlName="vacci" value="No" >
+                              <label class="custom-control-label" for="vacciNo">No</label>
+                            
+                          </div>
+                      </div>
+                    <div class="md-form">
+                        <textarea type="text" id="petBehaviour" class="md-textarea form-control" mdbInputDirective formControlName="petBehaviour" ></textarea>
+                  <label for="petBehaviour">IS THERE A CAT/DOG BEHAVIOR THAT WOULD NOT BE ACCEPTABLE TO YOU?</label>
+                </div>
+                <div class="md-form">
+                    <textarea type="text" id="petHome" class="md-textarea form-control" mdbInputDirective formControlName="petHome" ></textarea>
+              <label for="petHome">IF THIS PET DOESN’T WORK OUT IN YOUR HOME, WHAT WILL YOU DO?</label>
+            </div>
+                <div>
+                  <button type="button" mdbBtn color="light" mdbWavesEffect matStepperPrevious type="button">Back</button>
+                  
+                      <button type="submit" mdbBtn color="indigo" mdbWavesEffect >Send</button>
+                  
+                </div>
+                </form>
+              </mat-step>
+            </mat-horizontal-stepper>
+    </div>
+    </div>
+  </div>  
+</div>

@@ -1,0 +1,40 @@
+
+<!--Updated by : Dheeraj Varshney (B00808467) (dh301823@dal.ca) -->
+
+
+<!-- https://getbootstrap.com/  I have used bootstrap classes container, col-, row etc. -->
+
+<div id="MainDiv" class="mt-85">
+  <div class="container-fluid">
+
+    <div class="row" id="Row1">
+      <div class="col-lg-6 col-md-6 col-sm-6" id="Row1Col1">
+        <!-- The image has been take from this website:  
+        https://timesofindia.indiatimes.com/best-products/pets/dogs/these-dry-dog-food-packs-are-healthy-wont-leave-the-floors-messy/articleshow/67366466.cms -->
+        <img class="img-fluid" src={{product_data?.productPic}}> 
+      </div>
+
+      <div class="col-lg-6 col-md-6 col-sm-6" id="Row1Col2">
+        <h2>{{product_data?.productName}}</h2>
+        <h3>{{product_data?.productPrice}}</h3>
+        <!-- All the icons have been used from this website:
+              https://fontawesome.com/icons -->
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        <hr/>   
+        <p class="product_details">
+          <!-- Random text has been generated using website:
+				https://loremipsum.io/generator/?n=5&t=p -->
+        {{product_data?.productDescription}}
+        </p>
+        <!-- Bootstrap buttons have been used through btn class :https://getbootstrap.com/docs/4.0/components/buttons/ -->
+        <button class="btn btn-primary" (click)= "addToCart()">Add to cart</button>
+        <button class="btn btn-primary" (click)= "moreInfo()">Learn more</button>
+      </div>
+    </div>
+    
+  </div>
+</div>

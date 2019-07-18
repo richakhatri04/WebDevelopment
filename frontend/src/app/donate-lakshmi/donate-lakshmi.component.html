@@ -1,0 +1,154 @@
+<!-- Authored by Lakshmi Ponnuru [B00811623]-->
+<div class="container mt-85">
+  <div class="jumbotron">
+
+    <div class="container">
+      <h2 class="heading">Donation page</h2>
+      <hr>
+      <div class="donation-page">
+
+        <div class="info-wrapper">
+          <br>
+          <div class="image-wrapper">
+            <img class="d-block h-50 w-100"
+              src=".\assets\images\donatenow4.png" alt="Cat">
+          </div>
+          <br>
+          <br>
+          <div class="data-wrapper">
+            <h6 class="labl">Why to Donate? </h6>
+            <p class="desc">Your donation will help a pet. We provide emergency veterinary care and pet food to the
+              hundreds of thousands of pets that are homeless. Many pets are given up because their owners are no longer
+              able to care for them, financially or behaviorally. We rescue pets that are surrendered to us, that
+              shelters turn away, that are found in empty apartments and foreclosed homes and even dumpsters, or that
+              were released into the wild completely unable to survive on their own.
+              <br>
+              <a href="http://www.animalplanet.com/the-importance-of-volunteering-and-donating-to-your-local-shelter/">Read
+                more..</a>
+            </p>
+          </div>
+        </div>
+        <div class="form-erapper">
+          <!-- Angular 7 Reactive Form Validations at https://jasonwatmore.com-->
+
+          <!--Form examples from https://mdbootstrap.com/docs/angular-->
+
+          <form [formGroup]="donationForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <h6 class="labl1">Please enter your details and amount here</h6>
+            </div>
+            <br>
+            <div class="form-group">
+              <h6 class="labl2">Personal Details:</h6>
+            </div>
+            <hr>
+            <div class="form-group">
+              <label for="lastName" class="lbl3">Last Name:</label>
+              <input type="text" formControlName="lastName" class="form-control" placeholder="Last Name"
+                [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+              <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="firstName" class="lbl3">First Name:</label>
+              <input type="text" formControlName="firstName" class="form-control" placeholder="First Name"
+                [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+              <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                <div *ngIf="f.firstName.errors.required">First Name is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email" class="lbl3">Email ID:</label>
+              <input type="email" formControlName="email" class="form-control" placeholder="Email Id"
+                [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Email ID is required</div>
+                <div *ngIf="f.email.errors.email">Please enter valid Email ID like xxx@xxx.xxx</div>
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <h6 class="labl2">Address Details:</h6>
+            </div>
+            <hr>
+            <div class="form-group">
+              <label for="street" class="lbl3">Street:</label>
+              <input type="text" formControlName="street" class="form-control" placeholder="House No. and street name"
+                [ngClass]="{ 'is-invalid': submitted && f.street.errors }" />
+              <div *ngIf="submitted && f.street.errors" class="invalid-feedback">
+                <div *ngIf="f.street.errors.required">Street is required</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="country" class="lbl3">Country:</label>
+              <select formControlName="country" class="form-control" aria-placeholder="country"
+                [ngClass]="{ 'is-invalid': submitted && f.country.errors }">
+                <option>Canada</option>
+                <option>India</option>
+                <option>US</option>
+              </select>
+              <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+                <div *ngIf="f.country.errors.required">Country is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="state" class="lbl3">State:</label>
+              <select formControlName="state" class="form-control" aria-placeholder="state"
+                [ngClass]="{ 'is-invalid': submitted && f.state.errors }">
+                <option>Novascotia</option>
+                <option>Maharashtra</option>
+                <option>Texas</option>
+                <option>Florida</option>
+              </select>
+              <div *ngIf="submitted && f.state.errors" class="invalid-feedback">
+                <div *ngIf="f.state.errors.required">State is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="city" class="lbl3">City:</label>
+              <select formControlName="city" class="form-control" aria-placeholder="city"
+                [ngClass]="{ 'is-invalid': submitted && f.city.errors }">
+                <option>Halifax</option>
+                <option>Mumbai</option>
+                <option>Texas</option>
+                <option>Florida</option>
+              </select>
+              <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+                <div *ngIf="f.city.errors.required">City is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="zip" class="lbl3">Postal Code:</label>
+              <input type="text" formControlName="zip" class="form-control" placeholder="Postal Code"
+                [ngClass]="{ 'is-invalid': submitted && f.zip.errors }" />
+              <div *ngIf="submitted && f.zip.errors" class="invalid-feedback">
+                <div *ngIf="f.zip.errors.required">Postal Code is required</div>
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <h6 class="labl2">Donation Details:</h6>
+            </div>
+            <hr>
+            <div class="form-group">
+              <label for="street" class="lbl3">Amount:</label>
+              <input type="text" formControlName="amount" class="form-control" placeholder="Amount"
+                [ngClass]="{ 'is-invalid': submitted && f.amount.errors }" />
+              <div *ngIf="submitted && f.amount.errors" class="invalid-feedback">
+                <div *ngIf="f.amount.errors.required">Amount is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <button class="btn">Donate now</button>
+
+              <a [routerLink]="['/home-lakshmi']" class="btn">Cancel</a>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,104 @@
+.inventory_image{
+    padding: 15px;
+}
+.inventory_product_name , .inventory_product_price , .inventory_product_qty , .edit_button , .delete_button{
+    padding-top: 35px;
+}
+
+.md-form .form-control{
+    border: none;
+    border-bottom: 1px solid #ced4da;
+}
+
+.mat-select{
+    height: 40px;
+    background: #fff;
+    padding: 10px;
+    color: #000;
+    border-bottom: 1px solid #ced4da;
+}
+.inventory_product_name{
+    text-align: left;
+    font-size: 17px;
+    line-height: 23px;
+    
+}
+.inventory_product_name_wrapper{
+    max-height: 80px;
+    overflow: hidden;
+}
+.mobile_price_qty{
+    display: none;
+}
+.edit_button span , .delete_button span{
+    margin: 0 5px;
+}
+.edit_button:hover{
+    color: green;
+    cursor: pointer;
+}
+.delete_button:hover{
+    color: red;
+    cursor: pointer;
+}
+.row_head{
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+.inventory_content{
+    padding-bottom: 25px;
+}
+mdb-card{
+    margin-top: 15px;
+}
+.md-form .form-control{
+    border: none;
+    border-bottom: 1px solid #ced4da;
+}
+.product_image_upload{
+    border-bottom: 1px solid;
+    padding-bottom: 5px;
+}
+
+@media screen and (max-width:768px){
+    .row_head{
+        display: none;
+    }
+    .inventory_image{
+        padding-top: 5px;
+    }
+    .inventory_product_name , .inventory_product_price , .inventory_product_qty , .edit_button , .delete_button{
+        padding-top: 20px;
+    }
+    .edit_button , .delete_button{
+        padding-bottom: 20px;
+    }
+    .inventory_product_name_wrapper{
+        max-height: initial;
+    }
+    .mobile_price_qty{
+        display: block;
+        text-align: left;
+    }
+    .desktop_price_qty{
+        display: none;
+    }
+    .mobile_price{
+        margin-right: 10px;
+    }
+    .col-sm-6{
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    .inventory_product_name{
+        margin: 0;
+    }
+    @media screen and (max-width:576px) {
+        .inventory_product_name , .edit_button , .mobile_price_qty , .delete_button{
+            padding: 10px 10px 0; 
+        }
+        .edit_button  , .delete_button {
+            padding-bottom: 10px;
+        }
+    }
+}

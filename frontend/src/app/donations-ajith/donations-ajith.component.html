@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<div class="mt-85" >
+    <div class="row" style="margin-top:3%">
+        <div class="col-sm-8">
+            <!-- https://colorlib.com/wp/wp-content/uploads/sites/2/Pet-World-Pet-Sitter-and-Pet-Shop-Animal-Care-min.jpg -->
+            <img  style="height:100%; width :100%" class="img-width-height" src="../assets/images/PetImages/DonationCatImage.png" alt="cutedogface"/>
+        </div>
+        <div class="col-sm-4 grid-background-color">
+                <div class="text-center">
+                        <h1>DONATIONS</h1>
+                </div>
+                <div class="row center" style="margin-top: 20px;margin-left: 8%">
+                        <button [ngClass]="{'col-xs-6 unselected-button-color' : ! monthly, 'col-xs-6 selected-button-color' : monthly }" (click)="oneTimeDonation()" style="width: 40%;border-radius: 12px;cursor:pointer"> 
+                                <i [hidden]="monthly" class="fas fa-check"></i> 
+                                <i [hidden]="!monthly" class="fas fa-gift"></i> 
+                                Donate Now
+                        </button>
+                        <button [ngClass]="{'col-xs-6 unselected-button-color' : monthly, 'col-xs-6 selected-button-color' : ! monthly }" style="margin-left: 20px;width: 40%;" (click)="monthlyDonation()"> 
+                                <i [hidden]="!monthly" class="fas fa-check"></i> 
+                                <i [hidden]="monthly" class="fas fa-gift"></i>
+                                Donate Monthly
+                        </button>
+                </div>
+                <div class="row" style="margin-top: 20px;margin-left: 2%">
+                        <h5> Donation Amount </h5>
+                </div>
+                <div class="row" style="margin-top: 5px;margin-left: 7%">
+                        <button [ngClass]="{'col-xs-6   unselected-button-color ': hundered,'col-xs-6  selected-button-color': ! hundered}" style="width: 40%" (click)="hundredrupees()">
+                                <i [hidden]="!hundered" class="fas fa-check"></i>
+                                 $ 100</button>
+                        <button  [ngClass]="{'col-xs-6  unselected-button-color ': fivehundered,'col-xs-6  selected-button-color': ! fivehundered}" style="margin-left:5%;width: 40%" (click)="fivehundredrupees()">
+                                <i [hidden]="!fivehundered" class="fas fa-check"></i>
+                                 $ 500</button>
+                </div>
+                <div class="row" style="margin-top: 5px;margin-left: 7%">
+                        <button name="field"  [ngClass]="{'col-xs-6 width-amount-button unselected-button-color': thousand,'col-xs-6 width-amount-button selected-button-color': ! thousand}" style="width: 40%" (click)="thousandhundredrupees()">
+                                <i [hidden]="!thousand" class="fas fa-check"></i>
+                                 $ 1000</button>
+                        <div (click)="otherAmount()" class="col-xs-6" style="width: 40%" >
+                                        <input  style="margin-left:14%;width:100%" class="col-xs-3 button-radius" min= "1" type="number" [(ngModel)]="DonationAmount" placeholder="   other amount.." >
+                        </div>
+ 
+                </div>
+                <div class="row" [hidden]="!isdonation">
+                        <p style="color:red;margin-left: 19%">please choose a amount to donate.</p>
+                </div>
+                <div class="row">
+                        <h5 style="margin-left:5%;margin-top:2%">Message for charity</h5>
+                </div>
+                <div class="row">
+                        <textarea style="margin-left:5%" class="col-xs-8 button-radius" rows="4" [(ngModel)]="MessageForCharity" cols="45" placeholder="Enter the message for charity..."></textarea>
+                </div>
+                <div class="row" [hidden]="!ismessage">
+                        <p style="color: red;margin-left: 19%">please a enter the message for charity.</p>
+                </div>
+                <div class="row">
+                    <button class="button-radius proceed-donation"  (click)="payDonations()">Proceed to Donate 
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+    </div>
+</div>
+</div>

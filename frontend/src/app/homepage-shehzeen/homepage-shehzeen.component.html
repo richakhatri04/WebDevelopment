@@ -1,0 +1,103 @@
+<!-- Authored by Shehzeen[B00812551]-->
+<!-- Material design components are from https://material.angular.io/-->
+<!DOCTYPE html>
+<head></head>
+<div class="mt-85">
+    <!--material bootstrap for angular https://mdbootstrap.com-->
+    <mat-card>
+       <mdb-carousel [isControls]="true" [animation]="'slide'">
+       <mdb-carousel-item>
+         <!--The first image is taken from http://www.yalesvillevet.com/storage/app/media/Veterinarian-04.jpg-->
+          <img class="d-block w-100" src="http://www.yalesvillevet.com/storage/app/media/Veterinarian-04.jpg" alt="Stray spirit">
+          <div class="carousel-caption">
+             <h3 class="h3-responsive">Adopt a pet - Save A life</h3>
+             <p>Give Stray animals a better Life</p>
+          </div>
+       </mdb-carousel-item>
+       <mdb-carousel-item>
+         <!--The second image is taken from https://www.torontohumanesociety.com/images/uploads/canine-dog-german-shepherd-edit-web2.png-->
+          <img class="d-block w-100" src="https://www.torontohumanesociety.com/images/uploads/canine-dog-german-shepherd-edit-web2.png" alt="Stray spirit">
+          <div class="carousel-caption">
+             <h3 class="h3-responsive">Adopt a pet - Save A life</h3>
+             <p>Donate for Saving Stray Pets</p>
+          </div>
+       </mdb-carousel-item>
+       <mdb-carousel-item>
+         <!--The third image is taken from https://static.boredpanda.com/blog/wp-content/uploads/2017/06/kennel-club-dog-photographer-competition-2017-11-5950d9a6ee88c__880.jpg-->
+          <img class="d-block w-100" src="https://static.boredpanda.com/blog/wp-content/uploads/2017/06/kennel-club-dog-photographer-competition-2017-11-5950d9a6ee88c__880.jpg" alt="Stray spirit">
+          <div class="carousel-caption">
+             <h3 class="h3-responsive">Adopt a pet - Save A life</h3>
+             <p>Help The Stray pets get shelter</p>
+          </div>
+       </mdb-carousel-item>
+       </mdb-carousel>
+    </mat-card>
+    <br>
+    <section class="mat-typography">
+         <h1 class="heading text-center mt-25"><b>Save Stray Animals - Make World more Beautiful.</b></h1>
+      </section>
+      <mat-divider></mat-divider>
+      <br>
+    <div class="container">
+       <div class="row">
+          <div class="col-sm-4">
+             <mat-card>
+                <mat-card-header>
+                   <mat-card-title class="title">Adopt</mat-card-title>
+                   <mat-card-subtitle class="sub-title">Adopt a Pet and give them a better and healthy life.</mat-card-subtitle>
+                </mat-card-header>
+                <!--The image below is taken from https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQN4_IFY0BYlE3smbgSrsDVTcRNRHXHWP6bLM3ZCjUYvDv9rv5-->
+                <img height="100" width="100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQN4_IFY0BYlE3smbgSrsDVTcRNRHXHWP6bLM3ZCjUYvDv9rv5" alt="Adopt A pet">
+                <hr style="color: 	#9CCB00;">
+                <mat-card-content>
+                   <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mini incididunt ut.
+                   </p>
+                </mat-card-content>
+                <mat-card-actions>
+                   <button mat-raised-button  routerLink="/pets" style="color: white; background-color: 	#9CCB00;">Adopt</button>
+                </mat-card-actions>
+             </mat-card>
+          </div>
+          <div class="col-sm-4">
+             <mat-card>
+                <mat-card-header>
+                   <mat-card-title class="title" >Donate</mat-card-title>
+                   <mat-card-subtitle class="sub-title" >Donate for a Stray Pet and give them better life.</mat-card-subtitle>
+                </mat-card-header>
+                <!--The image below is taken from http://cdn.njboxerrescue.com/wp-content/uploads/2015/03/icon-donate.png"-->
+                <img height="100" width="100" src="http://cdn.njboxerrescue.com/wp-content/uploads/2015/03/icon-donate.png" alt="Adopt A pet">
+                <hr style="color: 	#9CCB00;">
+                <mat-card-content>
+                   <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mini incididunt ut.
+                   </p>
+                </mat-card-content>
+                <mat-card-actions>
+                   <button routerLink="/donate" mat-raised-button style="color: white; background-color: 	#9CCB00;">Donate</button>
+                </mat-card-actions>
+             </mat-card>
+          </div>
+          <div class="col-sm-4">
+             <mat-card>
+                <mat-card-header>
+                   <mat-card-title class="title" >Shop</mat-card-title>
+                   <mat-card-subtitle class="sub-title" >Shop for your Pet and make your home a better place to live.</mat-card-subtitle>
+                </mat-card-header>
+                <!--The image below is take from https://irp-cdn.multiscreensite.com/db3c0329/dms3rep/multi/mobile/pet_food_icon-2-172x172.png-->
+                <img height="100" width="100" src="https://irp-cdn.multiscreensite.com/db3c0329/dms3rep/multi/mobile/pet_food_icon-2-172x172.png" alt="Adopt A pet">
+                <hr style="color: 	#9CCB00;">
+                <mat-card-content>
+                   <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mini incididunt ut.
+                   </p>
+                </mat-card-content>
+                <mat-card-actions>
+                   <button routerLink="/shop" mat-raised-button style="color: white; background-color: 	#9CCB00;">Shop</button>
+                </mat-card-actions>
+             </mat-card>
+          </div>
+       </div>
+    </div>
+    <br><br><br>
+ </div>

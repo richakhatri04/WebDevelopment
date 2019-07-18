@@ -1,0 +1,127 @@
+<!-- Developer: Aditya Gadhvi (B00809664) (ad742065@dal.ca)  -->
+
+<!-- https://getbootstrap.com/  I have used bootstrap classes container, col-, row etc. -->
+
+<!-- https://angular.io/api/forms  For forms, I have used default in-built angular functions and components such as formGroup and default validators such as Validators.required -->
+<div class="container-fluid mt-85">
+    <div class="row" id="Row1">
+      <div class="col-lg col-md col-sm center" id="Row1Col1">
+      <h2>Register with StraySpirit</h2>  
+      </div>
+    </div>
+    <div class="row" id="Row2">
+      <div class="col-lg-3 col-md-3 col-sm-3" id="Row2Col1">
+        &nbsp;                       
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 center" id="Row2Col2">
+        &nbsp;
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3" id="Row2Col3">
+            &nbsp;
+        </div>
+    </div> 
+    <div class="row" id="Row3">
+      <div class="col-lg-3 col-md-3 col-sm-3" id="Row3Col1">
+        &nbsp;
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6" id="Row3Col2">
+          <!-- https://getbootstrap.com/docs/4.0/components/input-group/  for the forms i have used input-group provided by the bootstrap-->
+
+        <form name="userForm" [formGroup]="userForm">
+          <label for="firstNameInput">Firstname:</label>
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                  <!-- https://fontawesome.com/v4.7.0/icons/  i have used this website for including icons in my form...ex fa fa-user -->
+                <span class="input-group-text"><i class="fa fa-user"></i></span>
+              </div>
+              <!-- https://mdbootstrap.com/docs/jquery/forms/validation/  i have used md-bootstrap classes for showing invalid errors. -->
+              <input type="text" class="form-control" formControlName="firstNameInput" id="firstNameInput" placeholder="Enter your firstname" [ngClass]="{'is-invalid':
+              userForm.get('firstNameInput').touched && userForm.get('firstNameInput').invalid}">
+              <div class="invalid-feedback">
+                  <div *ngIf="userForm.get('firstNameInput').errors.required">Firstname is required to be entered...!!</div>
+                  <div *ngIf="userForm.get('firstNameInput').errors.pattern">Please enter a valid firstname, that contains only alphabets and no numbers or special characters</div>
+              </div>
+          </div>
+
+          <label for="lastNameInput">Lastname:</label>
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-user"></i></span>
+              </div>
+              <input type="text" class="form-control" formControlName="lastNameInput" id="lastNameInput" placeholder="Enter your lastname" [ngClass]="{'is-invalid':
+            userForm.get('lastNameInput').touched && userForm.get('lastNameInput').invalid}">
+            <div *ngIf="userForm.get('lastNameInput').touched && userForm.get('lastNameInput').invalid" class="invalid-feedback">
+                <div *ngIf="userForm.get('lastNameInput').errors.required">Lastname is required to be entered...!!</div>
+                <div *ngIf="userForm.get('lastNameInput').errors.pattern">Please enter a valid lastname, that contains only alphabets and no numbers or special characters</div>
+            </div>
+          </div>
+
+          <label for="numberInput">Phone number:</label>
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-phone"></i></span>
+              </div>
+              <input type="text" class="form-control" formControlName="numberInput" id="numberInput" placeholder="Enter your phone number" [ngClass]="{'is-invalid':
+              userForm.get('numberInput').touched && userForm.get('numberInput').invalid}">
+              <div class="invalid-feedback">
+                <div *ngIf="userForm.get('numberInput').errors.required">Number is required to be entered...!!</div>
+                <div *ngIf="userForm.get('numberInput').errors.pattern">Entered number is invalid:<ul><li>Please enter a 10 digit number.</li><li>Please enter a number without any alphabets and special characters.</li><li>Valid numbers: 9024033410 , 902-403-3410, (902)-(403)-(3410)</li> </ul></div>
+              </div>
+          </div>
+
+          <label for="emailInput">Email:</label>
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+              </div>
+              <input type="email" class="form-control" formControlName="emailInput" id="emailInput" placeholder="Enter your Email address" [ngClass]="{'is-invalid':
+              userForm.get('emailInput').touched && userForm.get('emailInput').invalid}">
+              <div class="invalid-feedback">
+                <div *ngIf="userForm.get('emailInput').errors.required">Email is required to be entered..!!!</div>
+                <div *ngIf="userForm.get('emailInput').errors.pattern">Invalid email address.!!!</div>  
+              </div>
+          </div>
+
+          <label for="passwordInput">Password:</label>
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-key"></i></span>
+              </div>
+              <input type="password" class="form-control" formControlName="passwordInput" id="passwordInput" placeholder="Enter your password" [ngClass]="{'is-invalid':
+            userForm.get('passwordInput').touched && userForm.get('passwordInput').invalid}" minlength="5" maxlength="10">
+            <div class="invalid-feedback">
+              <div *ngIf="userForm.get('passwordInput').errors.required">Password is required to be entered.</div>
+              <div *ngIf="userForm.get('passwordInput').errors.minlength || userForm.get('passwordInput').errors.maxlength">
+                <ul>
+                  <li>Minimum length of the password should be 5 characters.</li>
+                  <li>Maximum length of the password should be 10 characters.</li>
+                </ul>
+              </div>
+                
+            </div>
+          </div>
+
+          <label for="cPasswordInput">Confirm Password:</label>
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-key"></i></span>
+              </div>
+              <input type="password" class="form-control" id="cPasswordInput" formControlName="cPasswordInput" placeholder="Re-enter your password" [ngClass]="{'is-invalid':
+            userForm.get('cPasswordInput').touched && userForm.get('cPasswordInput').invalid}">
+            <div class="invalid-feedback">
+              <div *ngIf="userForm.get('cPasswordInput').errors.required">The password is required to be entered again.</div> 
+              <div *ngIf="userForm.get('cPasswordInput').errors.confirmPassword">The passwords do not match.</div> 
+            </div>
+          </div>
+          <!-- https://getbootstrap.com/docs/4.0/components/buttons/  I have used bootstrap buttons. -->
+          <button class="btn btn-primary">Register</button>
+       
+           
+          </form>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-3" id="Row3Col3">
+        &nbsp;
+      </div>
+    </div>
+</div>
+

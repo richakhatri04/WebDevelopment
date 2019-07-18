@@ -1,0 +1,13 @@
+/*Authored by Aparna Sridhar[B00799570]*/
+.resgister_button{
+    display: block;
+    margin: 10px auto;
+    letter-spacing: 2px;
+}
+input.counter-danger ~ span.text-danger{
+    display: none !important;
+}
+input.counter-success ~ span.text-success{
+    display: none !important;
+}
+

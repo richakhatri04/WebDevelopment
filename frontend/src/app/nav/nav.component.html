@@ -1,0 +1,72 @@
+<!-- Developed by Aadesh Shah (B00802629) - aadeshshah@dal.ca -->
+<!-- modified by Ajith Jayanthi B00825322 aj788769@dal.ca -->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-light white fixed-top scrolling-navbar">
+    <mdb-navbar-brand>
+      <a class="navbar-brand" routerLink="/">
+          <!-- Used h1 tag for logo as per W3 guidelines https://wehavezeal.com/blog/web-development/2016/01/12/should-i-use-the-h1-tag-for-my-website-logo -->
+          <h1><img src="../assets/images/StraySpiritLogo.PNG" height="45" alt="StraySpirit_Logo"></h1>
+      </a>
+  </mdb-navbar-brand>
+    <links>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link waves-light" mdbWavesEffect routerLink="/pets">Find a Pet</a>
+            </li>
+            <li class="nav-item dropdown" dropdown>
+              <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                  Resources<span class="caret"></span></a>
+              <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                  <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/why-adopt-cat">Why Adopt a Cat?</a>
+                  <div class="divider dropdown-divider"></div>
+                  <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/why-adopt-dog">Why Adopt a Dog?</a>
+                  <div class="divider dropdown-divider"></div>
+                  <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/rescue">Why Rescue?</a>
+                  <div class="divider dropdown-divider"></div>
+                  <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/faq">FAQ</a>
+              </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-light" mdbWavesEffect routerLink="/shop">Shop</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-light" mdbWavesEffect routerLink="/donate">Donate</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-light" mdbWavesEffect routerLink="/blogs">Stories</a>
+            </li>
+            <li *ngIf="isAdmin && isUserAuthenticated" class="nav-item dropdown" dropdown>
+              <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                  Admin<span class="caret"></span></a>
+              <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                  <a *ngIf="isSuperAdmin" class="dropdown-item waves-light" mdbWavesEffect routerLink="/user_management">Manage Users</a>
+                  <div *ngIf="isSuperAdmin" class="divider dropdown-divider"></div>
+                  <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/approve_content">Approve Content</a>
+              </div>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <div class="row">
+          <a class="nav-link waves-light"  mdWavesEffect routerLink="/cart">
+              <i class="fas fa-cart-arrow-down fa-lg"></i>
+          </a>
+          <button routerLink="/cart" class="cart-count">{{items_in_cart}}</button>
+          </div>
+        </li>
+        <li class="nav-item dropdown" dropdown>
+          <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+              <i class="fas fa-user fa-lg"></i></a>
+          <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+              <button *ngIf="isUserAuthenticated" class="dropdown-item waves-light button" routerLink="/profile" mdWavesEffect style="cursor:pointer">My Profile
+              </button>
+              <div *ngIf="isUserAuthenticated" class="divider dropdown-divider"></div>
+              <a *ngIf="!isUserAuthenticated" class="dropdown-item waves-light" mdbWavesEffect routerLink="/login">Login</a>
+              <div *ngIf="!isUserAuthenticated" class="divider dropdown-divider"></div>
+              <a *ngIf="!isUserAuthenticated" class="dropdown-item waves-light" mdbWavesEffect routerLink="/register">Register</a>
+              <button *ngIf="isUserAuthenticated" class="dropdown-item waves-light button" (click)="onLogout()" style="cursor:pointer" mdbWavesEffect>Logout</button>
+          </div>
+      </li>
+    </ul>
+    </links>
+  </mdb-navbar>
+  <router-outlet></router-outlet>

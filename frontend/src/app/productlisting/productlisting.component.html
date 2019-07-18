@@ -1,0 +1,84 @@
+<!--Developer - Dheeraj Varshney B00808467 dh301823@dal.ca-->
+<!---->
+<!-- Modified By - Ajith Jayanthi B00825322 aj788769@dal.ca -->
+<div class="mt-85">
+  <div class="banner_image parallax"></div>
+  <div class="mt-25 container">
+    <div class="row">
+      <div class="col-md-3 category_col">
+        <div class="mt-85">
+          <p class="category_title text-center">Category</p>
+          <mdb-card>
+            <mdb-card-header (click)="filtCat('all')">Featured</mdb-card-header>
+            
+            <p (click)="filtCat('Food')">Food</p>
+              <p (click)="filtCat('Clothing')">Clothing</p>
+              <p (click)="filtCat('Pet Toys')">Pet Toys</p>
+              
+              
+              
+          </mdb-card>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="mt-25">
+          <div class="product_page_heading">
+            <h2>Here are our listings for Products</h2>
+            <mat-select placeholder="Sort By" [formControl]="productCategory" (openedChange)="categoryChange($event)">
+              <mat-option value="lowtohigh">
+                Price - Low to High
+              </mat-option>
+              <mat-option value="hightolow">
+                Price - High to Low
+              </mat-option>
+              <mat-option value="atoz">
+                Name - A to Z
+              </mat-option>
+              <mat-option value="ztoa">
+                Name - Z to A
+              </mat-option>
+            </mat-select>
+          </div>
+          <div class="container mt-25 products_listing">
+          <div class="row">
+            <div class="col-lg-4 col-md-6" *ngFor="let p of product_newData | paginate: { itemsPerPage: 6, currentPage: page }">
+                <mdb-card>
+                  <a routerLink="/product/{{p._id}}">  
+                  <mdb-card-img mdbWavesEffect [src]="p.productPic" [alt]="p.productName"></mdb-card-img>
+                  </a>  
+                  <mdb-card-body>
+                      <mdb-card-title>
+                        <h4>{{p.productName}}</h4>
+                      </mdb-card-title>
+                      <mdb-card-text> Some quick example text to build on the card title and make up the bulk of the card's
+                        content.
+                      </mdb-card-text>
+                      <div class="dash"></div>
+                      <div class="price_buttons">
+                        <span class="price">${{p.productPrice}}</span>
+                        <div class="action_buttons">
+                          <a >
+                          <span class="cart_button">
+                              <i class="fas fa-cart-plus fa-lg" (click) = "addToCart(p.productPic,p.productName,p.productPrice,p._id,p.productDescription,p.productUploader.uId)"></i>
+                          </span>
+                          </a>
+                          <a>
+                          <span class="share_button">
+                              <i class="fas fa-share-alt fa-lg"(click) = "share()"></i>
+                          </span>
+                          </a>
+                        </div>
+                      </div>
+                    </mdb-card-body>
+                  </mdb-card>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="pagination_wrapper">
+          <pagination-controls (pageChange)="page=$event"></pagination-controls>
+          </div>
+        </div>
+
+         
+  </div>
+</div>

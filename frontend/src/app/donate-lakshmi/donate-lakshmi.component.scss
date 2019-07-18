@@ -1,0 +1,55 @@
+.donation-page {
+    display: flex;
+  }
+  .info-wrapper,
+  .form-erapper {
+    width: 50%;
+    margin-left: 5%;
+  }
+  
+  .desc{
+    font-style: italic;
+  }
+  
+  .heading {
+  text-align: center;
+  font-style: italic;
+  font-weight: bold;
+  font-family: Georgia, 'Times New Roman', Times, serif
+  }
+  
+  .labl1{
+    font-style: italic;
+    text-align: center;
+    }
+  
+  .labl2{
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif
+  }
+  
+  .labl{
+    font-style: italic;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif
+  }
+  
+  .lbl3 {
+    font-style: italic;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif
+  }
+  
+  .btn {
+    background-color: darkslateblue;
+    color: aliceblue;
+    font-weight: bold;
+    align-content: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+    margin-left: 10%;
+    }

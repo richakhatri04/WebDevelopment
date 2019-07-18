@@ -1,0 +1,97 @@
+<!-- Developed by Richa Khatri (B00792218) - Richa.khatri@dal.ca -->
+<div class="container mt-85">
+  <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+          <div class="container">
+              <h2 class="text-center mt-25">Tell your Pet Story</h2>
+              <!--Form Begins-->
+              <form name="addStoryForm" [formGroup]="addStoryForm" (submit)="addStory()">
+                  <!--Title-->
+                  <div class="col-sm">
+                      <div class="md-form">
+                          <input mdbInputDirective type="text" id="storyTitle" class="form-control" name="storyTitle"
+                              formControlName="storyTitle"
+                              [ngClass]="{'is-invalid':addStoryForm.get('storyTitle').touched && addStoryForm.get('storyTitle').invalid}">
+                          <label for="storyTitle" class="">Title of your story *</label>
+                          <div *ngIf="addStoryForm.get('storyTitle').touched && addStoryForm.get('storyTitle').invalid"
+                              class="invalid-feedback">
+                              <div *ngIf="addStoryForm.get('storyTitle').errors.required">Title is required</div>
+                          </div>
+                      </div>
+                  </div>
+                  <!--/Title-->
+
+                  <!--Content-->
+                  <div class="col-sm">
+                      <div class="md-form">
+                          <textarea mdbActive id="content" placeholder="Your Story ... *" class="form-control" name="content" rows="6"
+                              formControlName="content"
+                              [ngClass]="{'is-invalid':addStoryForm.get('content').touched && addStoryForm.get('content').invalid}"></textarea>
+                          <div *ngIf="addStoryForm.get('content').touched && addStoryForm.get('content').invalid"
+                              class="invalid-feedback">
+                              <div *ngIf="addStoryForm.get('content').errors.required">Content is required</div>
+                          </div>
+                      </div>
+                  </div>
+                  <!--/Content-->                 
+                
+                  <!--Pet Category & Image Upload-->
+                  <div class="row">
+                       <!--Pet Category-->
+                      <div class="col-md-6">
+                            <div class="md-form">
+                                    <mat-form-field>
+                                            <mat-label>Type of Pet*</mat-label>
+                                            <mat-select placeholder="Pet Category" formControlName="petCategory" id="petCategory" name="petCategory"
+                                            [ngClass]="{'is-invalid':addStoryForm.get('petCategory').touched && addStoryForm.get('petCategory').invalid}">
+                                                    <mat-option value="Cat">
+                                                      Cat
+                                                    </mat-option>
+                                                    <mat-option value="Dog">
+                                                      Dog
+                                                    </mat-option>
+                                                    <mat-option value="Others">
+                                                            Other Pets
+                                                          </mat-option>
+                                            </mat-select>
+                                         </mat-form-field>
+                                         <mat-error *ngIf="addStoryForm.get('petCategory').touched && addStoryForm.get('petCategory').invalid && addStoryForm.get('petCategory').hasError('required')">Please choose a category</mat-error>
+                                         
+                                  </div> 
+                      </div>
+                       <!--Pet Category-->
+
+                       <!--Image Upload-->
+                      <div class="col-md-6">
+                            <div class="md-form">
+                                    <input name="imageUrl" type="file" accept="image/*" (change)="handleInputChange($event)" />
+                                </div>
+                                    <img [src]="imageSrc" style="max-width:150px;max-height:150px"/>
+                                    <div class="image_preview" *ngIf="imagePreview !== '' && imagePreview">
+                                    <img [src]="imagePreview" [alt]="addStoryForm.storyTitle" class="img-fluid">
+                                    </div>
+                      </div>
+                      <!--Image Upload-->
+                  </div>
+                  <!--/Pet Category & Image Upload-->
+                  
+                  <!--Add button-->
+                  <div class="col-sm">
+                   <div class="md-form">
+                  <button mdbBtn type="submit" color="indigo" mdbWavesEffect
+                      [disabled]="!addStoryForm.valid">Add</button>
+                    </div>
+                    </div>
+                  <!--/Add button-->
+                  
+
+                  <br />
+                  <!--Add Success Message-->
+                  <p><b>{{myTxt}}</b></p>
+                  <!--/Add Success Message-->
+              </form>
+              <!--Form Ends-->
+          </div>
+      </div>
+  </div>
+</div>

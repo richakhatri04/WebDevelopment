@@ -1,0 +1,96 @@
+<!-- Authored by Shehzeen[B00812551]-->
+ <!--material bootstrap for angular https://mdbootstrap.com-->
+ <!-- Material design components are from https://material.angular.io/-->
+ <!DOCTYPE html>
+ <head></head>
+ <div class="jumbotron-fluid jumbotron mt-85">
+    <div class="container">
+       <div style="width:100%; margin-bottom: 25px;">
+         <div class="row" style="margin-bottom: 50px;">
+               
+            <div class="col-md-4 col-md-border">
+              
+                  
+                  <img  src={{product_data?.productPic}}
+                  alt={{product_data?.productPic}}>
+               
+            </div>
+            <div class="col-md-8 col-md-border">
+                  <form  [formGroup]="reviewForm" name="reviewForm" (submit)="onSubmit()">
+                       <div>
+                           <mat-card-header>
+                                 <mat-card-title>{{product_data?.productName}}</mat-card-title>
+                                 
+                                 <span class="cart_button">
+                                       <i class="fas fa-cart-plus fa-lg" (click) = "addToCart()"></i>
+                                   </span>
+                              </mat-card-header>
+                          
+                             
+                       </div>
+                      
+                         
+                           <mat-divider></mat-divider>
+                           <br>
+                           <mat-card-content>
+                              <mat-card-subtitle>
+                                 <div style=" width:12%;float:left;"><b>Price:</b></div>
+                                 <div style="width:67%; "> <b>{{product_data?.productPrice}}</b></div>
+                              </mat-card-subtitle>
+                              <mat-card-subtitle>
+                                 <div><b>Description:</b></div>
+                                 <div>
+                                       {{product_data?.productDescription}}
+                                 </div>
+                              </mat-card-subtitle>
+                              <div *ngIf="currentUserId != null">
+                              <mat-card-subtitle>
+                                 <div style=" float:left;"><b>Write a Review:</b></div>
+                                 <div style="width:100%; ">
+                                    <br>
+                                    <textarea #review name = "reviewBox" id="reviewBox" name="reviewBox" formControlName="reviewBox"
+                                       [ngClass]="{'is-invalid':reviewForm.get('reviewBox').invalid}"
+                                       class="md-textarea form-control"></textarea>
+                                    <div *ngIf="(reviewForm.get('reviewBox').touched && reviewForm.get('reviewBox').invalid)"
+                                       class="invalid-feedback">
+                                       <div *ngIf="reviewForm.get('reviewBox').errors.required">Review is required</div>
+                                    </div>
+                                 </div>
+                              </mat-card-subtitle>
+                              </div>
+                           </mat-card-content>
+                           <br>
+                           <div *ngIf="currentUserId != null">
+                           <button type="submit" class="button" [attr.disabled]="reviewForm.valid ? false : true " mat-flat-button color="primary"
+                           [disabled]="reviewForm.valid ? false : true ">Submit Review</button></div>
+                      
+                        </form>
+            </div>
+        
+        </div> 
+        
+        <mat-card-header>
+         <mat-card-title>REVIEWS</mat-card-title>
+      </mat-card-header>
+      <mat-divider></mat-divider> 
+      <div *ngIf="product_reviews">
+         <div *ngIf="product_reviews.length == 0">No Review Found.</div>
+         <mat-card   *ngFor="let  result of product_reviews; let i = index" style="margin-bottom: 20px;">
+           
+            {{result?.productReview}}
+
+            <i *ngIf="result?.editShow" class="fas fa-pencil-alt fa-fw" style="float:right" (click)="editReview(this, i)"></i>
+            <i *ngIf="result?.editShow"  class="fas fa fa-trash fa-fw" style="float:right" (click)="deleteReview(this, i)"></i>
+            
+            
+          
+           
+           
+         </mat-card>
+        
+      </div>
+    
+      
+       </div>
+    </div>
+ </div>

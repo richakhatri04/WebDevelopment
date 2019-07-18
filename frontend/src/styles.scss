@@ -1,0 +1,48 @@
+/* Global Stylesheet for all components */
+
+html { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; height: 100%; }
+.body_wrapper{
+    min-height: 100%;
+    margin-bottom: -50px;
+}
+.push{
+    height: 50px;
+}
+footer{
+    height: 50px;
+}
+body::-webkit-scrollbar { width: 15px; 	}
+body::-webkit-scrollbar-thumb { background-color: #191c22; opacity: 0.2; border-radius: 30px; }
+
+.mt-25{
+    margin-top: 25px;
+}
+input.counter-danger ~ span.text-danger{
+    display: none !important;
+}
+input.counter-success ~ span.text-success{
+    display: none !important;
+}
+.mt-85{
+    margin-top: 85px !important;
+    overflow: hidden;
+}
+.responsive-image-80{
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    height: auto;
+}
+
+.mat-drawer-content{
+    overflow: initial !important;
+}
+button[type="submit"]{
+    cursor: pointer;
+}
+
+input[type="file"]{
+    border-bottom: 1px solid;
+    padding-bottom: 5px;
+  }

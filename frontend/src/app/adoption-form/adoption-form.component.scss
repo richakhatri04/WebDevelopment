@@ -1,0 +1,14 @@
+
+.md-form .form-control{
+    border: none;
+    border-bottom: 1px solid #ced4da;
+}
+.custom-control-label::after{
+    cursor: pointer;
+}
+p.question{
+    margin: 20px 0 10px 0;
+}
+.inputVal{
+    visibility: hidden !important;
+}

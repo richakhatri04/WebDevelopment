@@ -1,0 +1,40 @@
+.form-control,.forgotmargin,.my,.register
+{
+// margin-top: 20px;
+padding: 20px;
+
+
+}
+
+.form-control,.my 
+{
+    
+ margin: auto;
+ 
+    
+
+}
+
+#Password
+{
+  margin-top: 30px;
+
+}
+
+.header2
+{
+    text-align: center;
+    margin-top: 30px;
+
+}
+
+// media query for responsiveness
+@media (max-width: 714px)
+{
+    #Password,#Email,.header2
+    {
+        font-size: 20px;
+    }
+}
+
+

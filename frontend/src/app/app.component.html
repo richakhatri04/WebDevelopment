@@ -1,0 +1,9 @@
+    <div class="body_wrapper">
+        <app-nav></app-nav>
+        <router-outlet></router-outlet>
+        <div class="push"></div>
+    </div>
+    <div class="profile_footer">
+            <!-- https://stackoverflow.com/questions/49685322/hide-certain-components-on-multiple-routes-angular-5 -->
+        <app-footer class="" *ngIf="!hasMatches('profile')"></app-footer>
+    </div>

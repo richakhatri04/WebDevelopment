@@ -1,0 +1,11 @@
+.btn{
+    border-radius: 25px;
+}
+.pdf_content{
+    display: none;
+}
+@media screen and (max-width:599px){
+    .btn{
+        padding: 0.44rem 1.14rem;
+    }
+}

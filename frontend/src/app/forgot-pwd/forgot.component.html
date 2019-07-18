@@ -1,0 +1,27 @@
+<!--Developer - Dheeraj Varshney B00808467 dh301823@dal.ca-->
+<div class="container-fluid mt-85">
+  
+  <h2 class = "header2" >Forgot Password</h2>
+    <form class="text-center border border-light p-5" name = "form" [formGroup]="pwdForgotForm">
+  
+    
+      <div class = "form group" >
+      <input type="email" id="Email" class="form-control md" placeholder="Email" formControlName = "email" [ngClass] = "{'is-invalid': pwdForgotForm.get('email').touched && pwdForgotForm.get('email').invalid}"/>
+      <div *ngIf = "pwdForgotForm.get('email').touched && pwdForgotForm.get('email').invalid" class="invalid-feedback">
+        <div *ngIf = "pwdForgotForm.get('email').errors.required">Email name is required</div>
+        <div *ngIf = "pwdForgotForm.get('email').errors.email ">Email should be a valid address</div>
+      </div>
+    </div>
+      <button mdbBtn color="info" class="submitbtn" (click)="pwdForgotbtn()" [disabled]="!pwdForgotForm.valid" type="submit">Submit</button>
+      <div class="alert alert-success" role="alert" *ngIf=submitted >
+          A activation link has been set on your email.
+        </div>
+
+</form>
+    
+  </div>
+  
+  
+  
+  
+  

@@ -1,0 +1,39 @@
+<div class="bg">
+    <div class="mt-25" *ngIf="isLoading">
+        <mat-spinner ></mat-spinner>
+    </div>
+    <div *ngIf="!isLoading">
+    <div class="container mt-85 event_wrapper">
+      <div class="event_container mt-25">          
+        <div class="" >
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="event_profile_pic">
+                <img [src] = "singleEvent?.eventPic" [alt] = "singleEvent?.eventName" class="img-fluid">
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="event_content">
+            <h2 class="event_name">{{singleEvent?.eventName}}</h2>
+            <div class="mt-25 sep"></div>
+            <div class="mt-25 event_specifications">
+              <p class="event_location"><i class="fas fa-map-marker-alt"></i> {{singleEvent?.location}}, {{singleEvent?.pincode}}</p>
+              <p class="event_detailed_specs"><i class="fas fa-calendar-week"></i>{{singleEvent?.eventDate}}</p>
+            </div>
+            <div class="mt-25">
+              <p class="event_uploader"><i class="fas fa-user-tie"></i> Host: {{singleEvent?.eventUploader.firstName}} {{singleEvent?.eventUploader.lastName}}  </p>
+              <button mdbBtn color="primary" class="waves-light toggle_button" type="button" mdbWavesEffect (click)="eventRegister()" *ngIf="isloggedin">Register</button>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="event_description">
+          <p> {{singleEvent?.eventDescription}}
+          </p>
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    

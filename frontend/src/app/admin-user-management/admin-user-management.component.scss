@@ -1,0 +1,76 @@
+.btn-primary{
+  background-color: #65427A !important;
+}
+.btn-secondary{
+  background-color: #B496C8 !important;
+}
+
+.outer-container{
+  margin: 6.25rem 1.75rem 1.75rem 0;
+  overflow: hidden;
+
+  .page-title{
+    padding-top: 1rem;
+    margin-left: 4rem;
+  }
+  .categories{
+    text-align: center;
+    margin: 1rem auto 0 auto;
+    button{
+      margin-right: 1rem;
+    }
+  }
+
+  table{
+    width: 100%;
+
+    .button-box{
+      text-align: center;
+      button{
+        width: 60%;
+        cursor: pointer;
+      }
+    }
+    th{
+      font-weight: bold;
+    }
+    tr{
+      height: 3rem;
+    }
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    td, th {
+      border: 1px solid #dddddd;
+      padding-left: 0.5rem;
+    }
+  }
+}
+.user-list{
+  margin: 1.75rem 4rem;
+
+  .table-container{
+    margin: 1rem;
+    max-height: 28rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .outer-container{
+    padding: 0;
+    margin-top: 4rem;
+  }
+  .user-list{
+    margin: 1.75rem 0.25rem 0.25rem 0.25rem;
+    .table-container{
+      overflow-x: scroll;
+      .button-box{
+        button{
+          width: 100%;
+        }
+    }
+    }
+  }
+}

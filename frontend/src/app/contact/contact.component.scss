@@ -1,0 +1,12 @@
+/*Authored by Aparna Sridhar[B00799570]*/
+input.counter-danger ~ span.text-danger{
+    display: none !important;
+}
+
+input.counter-success ~ span.text-success{
+  display: none !important;
+}
+#mybutton {
+  margin: 4px 2px;
+  padding: 0px 15px;
+}

@@ -1,0 +1,24 @@
+.product-card {
+    min-width: 200px ;
+    max-width: 300px; 
+  }
+  .form-control{
+    border: none;
+    border: 1px solid #ced4da;
+}
+
+@media (min-width: 992px) {
+  .col-md-border:not(:last-child) {
+      border-right: 1px solid #d7d7d7;
+  }
+  .col-md-border + .col-md-border {
+      border-left: 1px solid #d7d7d7;
+      margin-left: -1px;
+  }
+}
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}

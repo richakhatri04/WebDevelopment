@@ -1,0 +1,22 @@
+<div style = "margin-top: 130px; margin-left:150px;">
+<mat-card>
+<h4 style="text-align:center;">Feedback</h4>
+</mat-card>
+
+<mat-card>
+
+    <!-- <mat-card-title style="text-align:center;"> Feedback</mat-card-title> -->
+
+  
+    <mat-card-content>
+        <mat-form-field >
+          <textarea matInput #message maxlength="500" placeholder="Message" rows='7' [(ngModel)]="text"> </textarea>>
+          <mat-hint align="start"> Max characters allowed: 500</mat-hint>
+          <mat-hint align="end">{{message.value.length}} / 500</mat-hint>
+        </mat-form-field>
+    </mat-card-content>
+    <div style="text-align:center;"> 
+      <button mat-raised-button color = "primary" style="margin:auto;" (click) = "onSubmit()"> Submit feedback</button>
+    </div>    
+</mat-card>
+</div>

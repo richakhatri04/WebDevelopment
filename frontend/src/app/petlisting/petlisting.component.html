@@ -1,0 +1,157 @@
+<!-- Developed by Aadesh Shah B00802629 -->
+<div class="container-fluid mt-85">
+  <!-- Creating Search box -->
+  <div class="container">
+    <!-- {{api_location.suggestions[address]}} -->
+  </div>
+  <div class="container">
+    <div class="search_wrapper">
+      <input class="form-control search_box" type="text" placeholder="Enter your City" aria-label="Search"
+        [matAutocomplete]="auto" [formControl]="searchLocation" (keydown)="onKeydown($event)">
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)='filterPet($event.option.value)'>
+        <ng-container *ngFor="let location_value of api_location?.suggestions">
+          <mat-option
+            [value]="location_value.address.city+comma+ location_value.address.state+comma+ location_value.address.country"
+            *ngIf="location_value.address.city && location_value.address.state && location_value.address.country">
+            <span>{{location_value.address.city}}, {{location_value.address.state}},
+              {{location_value.address.country}}</span>
+          </mat-option>
+        </ng-container>
+      </mat-autocomplete>
+      <button class="search_button" (click)="onSearch()"><i class="fas fa-search"></i></button>
+    </div>
+    <div class="toggle_wrapper">
+      <button mdbBtn color="primary" class="waves-light toggle_button" type="button" (click)="test.toggle()"
+        mdbWavesEffect>
+        <i class="fas fa-sliders-h"></i> Filters
+      </button>
+      <div class="filter_wrapper" mdbCollapse #test="bs-collapse" [isCollapsed]="true">
+        <div class="row">
+          <div class="col-md-3 col-sm-6 col-sm-6">
+            <p class="filter_class">Category</p>
+            <mat-select placeholder="Any" multiple>
+              <mat-option value="category_filter">Felines</mat-option>
+              <mat-option value="category_filter">Canines</mat-option>
+            </mat-select>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <p class="filter_class">Age</p>
+            <mat-select placeholder="Any" multiple>
+              <mat-option value="age_filter">Young</mat-option>
+              <mat-option value="age_filter">Adult</mat-option>
+              <mat-option value="age_filter">Senior</mat-option>
+            </mat-select>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <p class="filter_class">Gender</p>
+            <mat-select placeholder="Any" multiple>
+              <mat-option value="gender_filter">Male</mat-option>
+              <mat-option value="gender_filter">Female</mat-option>
+            </mat-select>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <p class="filter_class">Vaccination Status</p>
+            <mat-select placeholder="Any" multiple>
+              <mat-option value="vaccination_filter">Vaccinated</mat-option>
+              <mat-option value="vaccination_filter">Not Vaccinated</mat-option>
+            </mat-select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="filter_wrapper desktop_visible">
+      <div class="row">
+        <div class="col-md-3 col-sm-6 col-sm-6">
+          <p class="filter_class">Category</p>
+          <mat-select placeholder="Any" multiple [formControl]="category_filter" (openedChange)="categoryChange($event)">
+            <mat-option value="Feline">Felines</mat-option>
+            <mat-option value="Canine">Canines</mat-option>
+          </mat-select>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <p class="filter_class">Age</p>
+          <mat-select placeholder="Any" multiple [formControl]="age_filter" (openedChange)="ageChange($event)">
+            <mat-option value="Young">Young</mat-option>
+            <mat-option value="Adult">Adult</mat-option>
+            <mat-option value="Senior">Senior</mat-option>
+          </mat-select>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <p class="filter_class">Gender</p>
+          <mat-select placeholder="Any" multiple [formControl]="gender_filter" (openedChange)="genderChange($event)">
+            <mat-option value="Male">Male</mat-option>
+            <mat-option value="Female">Female</mat-option>
+          </mat-select>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <p class="filter_class">Vaccination Status</p>
+          <mat-select placeholder="Any" multiple [formControl]="health_filter" (openedChange)="healthChange($event)">
+            <mat-option value="Vaccinated">Vaccinated</mat-option>
+            <mat-option value="Not Vaccinated">Not Vaccinated</mat-option>
+          </mat-select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-25" *ngIf="isLoading">
+      <mat-spinner ></mat-spinner>
+  </div>
+  <div *ngIf="!isLoading">
+  <div class="pet-list-header mt-25">
+    <p *ngIf="pet_newData?.length > 0">Pets Available For Adoption</p>
+    <div *ngIf="!pet_newData?.length > 0">
+      <p class="error_no_pets">No Pets Available in this area!</p>
+      <button mdbBtn color="primary" class="waves-light toggle_button" type="button" mdbWavesEffect
+        (click)="reloadPage()">Show in your Current Location</button>
+    </div>
+  </div>
+  <!-- Creating Pets Grid-->
+  <div class="pet-lists">
+    <div class="container">
+      <div *ngIf="pet_newData">
+        <div class="row">
+          <div class="col-lg-3 col-sm-4"
+            *ngFor="let pet_new of pet_newData | paginate: { itemsPerPage: 12, currentPage: page }">
+            <div class="pets_list">
+              <a routerLink="/pet-profile/{{pet_new._id}}">
+                <mdb-card>
+                  <div class="pets_card">
+                    <!--Card image-->
+                    <div class="card_img_wrapper">
+                      <img [src]="pet_new.petPic" alt="{{pet_new.petName}}" class="img-fluid">
+                    </div>
+                    <!--Card content-->
+                    <mdb-card-body>
+                      <!--Title-->
+                      <mdb-card-title>
+                        <h4>
+                          <span>{{pet_new.petName}}</span>
+                        </h4>
+                      </mdb-card-title>
+                    </mdb-card-body>
+                    <div class="pet_card_overlay">
+                      <div class="pet_card_overlay_image">
+                        <img [src]="pet_new.petPic" alt="{{pet_new.petName}}" class="img-fluid">
+                      </div>
+                      <div class="pet_card_overlay_detail">
+                        <h4>{{pet_new.petName}}</h4>
+                        <p>{{pet_new.petAge}} | {{pet_new.petGender}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </mdb-card>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="clearfix"></div>
+      <div class="pagination_wrapper mt-25">
+        <pagination-controls (pageChange)="page=$event"></pagination-controls>
+      </div>
+
+    </div>
+  </div>
+  </div>
+</div>
