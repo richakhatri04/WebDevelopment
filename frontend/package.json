@@ -27,7 +27,7 @@
     "core-js": "^2.5.4",
     "font-awesome": "^4.7.0",
     "hammerjs": "^2.0.8",
-    "handlebars": "^4.1.0",
+    "handlebars": "^4.5.3",
     "jsonwebtoken": "^8.5.0",
     "jspdf": "^1.5.3",
     "ngx-pagination": "^3.2.1",
